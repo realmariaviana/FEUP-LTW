@@ -1,10 +1,10 @@
 <?php 
-include_once('./templates/common.php');
+include_once('../templates/common.php');
 
 draw_header(null);
 ?>
 
-  <link rel="stylesheet" href="./css/register.css">
+  <link rel="stylesheet" href="../css/register.css">
 
 <form action="./actions/regist_user.php">
   <div class="container">
@@ -26,7 +26,7 @@ draw_header(null);
   </div>
   
   <div class="container signin">
-    <p>Already have an account? <a href="#">Sign in</a>.</p>
+    <p>Already have an account? <a href="login.php">Sign in</a>.</p>
   </div>
 </form>
 <?php 
