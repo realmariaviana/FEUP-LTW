@@ -9,15 +9,15 @@ include_once('../includes/session.php');
 draw_header(null);
 ?>
 
-<form action="./actions/user_login.php">
+<form method="post" action="../actions/user_login.php">
   <div class="container">
     <h1>Log in</h1>
     <hr>
     <label for="username"><b>Username</b></label>
     <input type="text" placeholder="Enter Username" name="username" required>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
 
     <button type="submit" class="loginbtn">Log in</button>
   </div>

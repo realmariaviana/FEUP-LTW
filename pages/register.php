@@ -6,7 +6,7 @@ draw_header(null);
 
   <link rel="stylesheet" href="../css/register.css">
 
-<form action="./actions/regist_user.php">
+<form method="post" action="../actions/user_register.php">
   <div class="container">
     <h1>Register</h1>
     <hr>
@@ -16,8 +16,8 @@ draw_header(null);
     <label for="email"><b>Email</b></label>
     <input type="text" placeholder="Enter Email" name="email" required>
 
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="passsword" required>
 
     <label for="psw-repeat"><b>Repeat Password</b></label>
     <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
