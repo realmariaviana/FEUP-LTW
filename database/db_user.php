@@ -7,14 +7,15 @@
    */
   function checkUserPassword($username, $password) {
     $db = Database::instance()->db();
-    $stmt = $db->prepare('SELECT * FROM user WHERE username = ? AND password = ?');
+    $stmt = $db->prepare('SELECT * FROM users WHERE username = ? AND password = ?');
     $stmt->execute(array($username, sha1($password)));
     return $stmt->fetch()?true:false; // return true if a line exists
   }
 
-  function insertUser($username, $password) {
+  function insertUser($username,$email, $password) {
     $db = Database::instance()->db();
-    $stmt = $db->prepare('INSERT INTO user VALUES(?, ?)');
-    $stmt->execute(array($username, sha1($password))); //VAI TER QUE MUDAR QD DERMOS SEGURANÇA
+    $stmt = $db->prepare('INSERT INTO users VALUES(?, ? ,?)');
+    $stmt->execute(array($username, $email, sha1($password)));
+    
   }
 ?>

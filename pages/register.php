@@ -1,6 +1,10 @@
 <?php 
 include_once('../templates/common.php');
+include_once('../includes/session.php');
 
+if(isset($_SESSION['username']))
+  die(header('Location: ../pages/stories.php'));
+  
 draw_header(null);
 ?>
 

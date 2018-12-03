@@ -2,9 +2,9 @@
 include_once('../templates/common.php');
 include_once('../includes/session.php');
 
- // Verify if user is logged in
+ // Verify if user is logged in 
  if (isset($_SESSION['username']))
-    die(header('Location: stories.php'));
+    die(header('Location: ../pages/stories.php'));
 
 draw_header(null);
 ?>

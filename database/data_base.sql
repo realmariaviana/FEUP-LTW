@@ -49,9 +49,9 @@ End;
 END;
 */
 
-INSERT INTO users Values("sheila1", "rosa@gmail.com", "lagrosinha");
-INSERT INTO users Values("sheila2", "pota@pota.com", "distraida");
-INSERT INTO users Values("Gansini", "carlosdcfgomes@hotmail.com","parolini");
+INSERT INTO users Values("sheila1", "rosa@gmail.com", "c7021fedf66cbda549838f07647e3489ce85990e");
+INSERT INTO users Values("sheila2", "pota@pota.com", "64fe28c207ce4605548a45b0230f71d97b45957b");
+INSERT INTO users Values("Gansini", "carlosdcfgomes@hotmail.com","976358f0e93dec372cfae1d679ad9e48cfcc8845");
 INSERT INTO stories Values(1,"Gansini", "A bela Faculdade", "É sempre top tar na feup", date('now'));
 INSERT INTO stories Values(2,"Gansini", "Faculdade de Merda", "Mas isto às vezes chateia", date('now'));
 INSERT INTO stories Values(3,"sheila1", "Dormir", "Eu devia estar mesmo a nanar a esta hora", date('now'));
