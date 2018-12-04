@@ -5,6 +5,8 @@
  */
 
 ?>
+
+  <link rel="stylesheet" href="../css/common.css">
 <!DOCTYPE html>
 <html>
 
@@ -18,13 +20,10 @@
 </head>
 
 <body>
-    <header>
-        <h1>CusCus</h1>
-        <h2>O melhor sitio para Cuscar</h2>
-        <!---<img src="" alt="">  -->  
+    <div class="header">
+        
 
         <?php if($username != null) { ?>
-           
            <nav> <ul>
             <li><?=$username?></li>
             <li><a href="../actions/user_logout.php">Logout</a> </li>
@@ -32,9 +31,14 @@
         <?php } ?>
 
             <?php if($username == null){?>
-            <li><a href="../pages/login.php"> Log In </a></li>
-            <li><a href="../pages/register.php">Sign Up</a> </li>
-
+                <div class="topnav">
+                    
+                <div class="links">              
+                <a href="../actions/user_logout.php">Logout</a>
+                <a href="../pages/profilePage.php">Profile</a>
+                <a href="../pages/mainPage.php">Home</a>
+                </div>
+            </div>
             <?php } ?>
         </nav>
 

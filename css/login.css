@@ -1,3 +1,7 @@
+
+/*//////////////////////////////////////////////////////////////////
+[ FONT ]*/
+
 @font-face {
   font-family: Poppins-Regular;
   src: url('../fonts/poppins/Poppins-Regular.ttf'); 
@@ -14,12 +18,10 @@
 }
 
 @font-face {
-  font-family: Poppins-Regular;
+  font-family: Poppins-SemiBold;
   src: url('../fonts/poppins/Poppins-SemiBold.ttf'); 
 }
-body{
-  font-family: Arial, Helvetica, sans-serif;
-}
+
 
 input {
 	outline: none;
@@ -43,8 +45,8 @@ button:hover {
 
 .title {
   width: 670px;
-  border-radius: 10px;
   background: #fff;
+  border-radius: 10px;
   overflow: hidden;
   position: relative;
 }
@@ -84,19 +86,29 @@ button:hover {
   background-color: rgba(54,84,99,0.7);
 }
 
-.title {
-  width: 670px;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  text-align: left;
-  line-height: 2;
+.in {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 43px 88px 50px 190px;
 }
 
+.username-block {
+  width: 100%;
+  position: relative;
+  padding-bottom: 5px}
+
+.password-block {
+  width: 100%;
+  position: relative;
+  padding-bottom: 5px
+}
 
 .label {
   font-family: Poppins-Regular;
   font-size: 15px;
+  color: #808080;
   line-height: 1.2;
   text-align: right;
 
@@ -106,37 +118,53 @@ button:hover {
   width: 80px;
 }
 
-input[type=text], input[type=password] {
+.input {
+  font-family: Poppins-Regular;
+  font-size: 15px;
+  color: #555555;
+  line-height: 1.2;
+
+  display: block;
   width: 100%;
-  padding: 12px 1px;
-  display: inline-block;
-  border: none;
-  margin-bottom: 20px;
-  
+  background: transparent;
+  padding: 0 5px;
 }
 
-hr {
-  border: 2px solid #f1f1f1;
-  margin-bottom: 25px;
+a {
+  justify-content: left;
+	font-family: Poppins-Regular;
+	font-size: 14px;
+  color: #666666;
+  padding: 0 10px;
 }
 
-.registerbtn {
-  background-color: #8C2D19;
-  color: white;
-  padding: 16px 30px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
+a:hover {
+	text-decoration: none;
+  color: #8c2d19;
+}
+
+.container-loginbtn {
   width: 100%;
-  opacity: 0.9;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.registerbtn:hover {
-  opacity: 1;
+.loginbtn {
+  justify-content: center;
+  padding: 0 20px;
+  min-width: 160px;
+  height: 50px;
+  background-color: #8c2d19;
+  border-radius: 25px;
+
+  font-family: Poppins-Regular;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.2;
+
 }
 
-.signin {
-  background-color: #f1f1f1;
-  text-align: center;
-   padding: 16px 30px;
+.loginbtn:hover {
+  background-color: #333333;
 }
+
