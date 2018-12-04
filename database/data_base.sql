@@ -16,7 +16,13 @@ CREATE TABLE stories(
   username VARCHAR NOT NULL REFERENCES users,
   title TEXT NOT NULL, 
   body TEXT NOT NULL,
-  hour DATE NOT NULL
+  hour DATETIME NOT NULL
+);
+
+CREATE TABLE themes(
+  theme TEXT,
+  story INTEGER REFERENCES stories,
+  PRIMARY KEY (theme, story)
 );
 
 CREATE TABLE comments (
@@ -24,7 +30,7 @@ CREATE TABLE comments (
   user_id VARCHAR NOT NULL REFERENCES users,
   story_id INTEGER NOT NULL REFERENCES stories,
   body TEXT NOT NULL,
-  hour DATE
+  hour DATETIME
 );
 
 CREATE TABLE likes(
@@ -38,6 +44,8 @@ CREATE TABLE dislikes(
   username VARCHAR REFERENCES users,
   PRIMARY KEY (story_id, username)
 );
+
+
 
 /*
 --NEED TO KNOW IF THE SINTAX IS RIGHT
@@ -59,3 +67,6 @@ INSERT INTO stories Values(4,"sheila2", "PUTA QUE PARIU ESTA MERDA", "FODACE CAR
 INSERT INTO comments Values(1, "sheila2", "A bela Faculdade", "LOL, TAVA BEM SEM ESTA MERDA", date('now'));
 INSERT INTO comments Values(2, "sheila1", "PUTA QUE PARIU ESTA MERDA", "same <3", date('now'));
 INSERT Into comments Values(3, "Gansini", "Faculdade de Merda", "Nunca disse algo tão certo", date('now'));
+INSERT INTO themes Values("School", 1);
+INSERT INTO themes Values("Preguiça", 3);
+Insert INTO themes Values("Palavrões", 4);
