@@ -19,12 +19,6 @@ CREATE TABLE stories(
   hour DATETIME NOT NULL
 );
 
-CREATE TABLE themes(
-  theme TEXT,
-  story INTEGER REFERENCES stories,
-  PRIMARY KEY (theme, story)
-);
-
 CREATE TABLE comments (
   comment_id INTEGER PRIMARY KEY,
   user_id VARCHAR NOT NULL REFERENCES users,
@@ -32,6 +26,14 @@ CREATE TABLE comments (
   body TEXT NOT NULL,
   hour DATETIME
 );
+
+CREATE TABLE themes(
+  theme TEXT,
+  story INTEGER REFERENCES stories,
+  PRIMARY KEY (theme, story)
+);
+
+
 
 CREATE TABLE likes(
   story_id INTEGER REFERENCES stories,

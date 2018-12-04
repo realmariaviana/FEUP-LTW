@@ -49,8 +49,6 @@ include_once('../database/db_comments.php');
  * Draw a comment Box 
  */
 
-    include_once('../database/db_comments.php');
-
    function draw_comment_form(){
 ?>
 
@@ -62,5 +60,32 @@ include_once('../database/db_comments.php');
         </form>
 
     <?php } ?>
+
+
+<?php 
+
+/**
+ * Draw stories 
+ */
+
+ function drawStories(){
+    $stories = getAllStories();
+
+    foreach($stories as $story)
+        drawStory($story);
+ }
+
+
+ function drawStory($story){
+     ?>
+     <article>
+         <h1><?= $story['title']?></h1>
+        <div id="userStory"> <?= $story['username']?></div>
+        <p> <?=$story['body']?></p>
+        <footer><?= $story['hour']?></footer>
+        </article>
+ 
+ <?php   }
+?>
 
 

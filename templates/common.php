@@ -21,14 +21,13 @@
 
 <body>
     <header>
-        
         <?php if($username != null) { ?>
            <nav>
            <div class="topnav">
             <p><?=$username?></p>
             <a href="../actions/user_logout.php">Logout</a>
             <a href="../pages/profilePage.php">Profile</a> 
-            <a href="../pages/mainPage.php">Home</a>               
+            <a href="../pages/stories.php">Home</a>               
             </div>
         <?php }  ?>
         </nav>

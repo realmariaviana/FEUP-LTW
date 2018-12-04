@@ -69,7 +69,7 @@
     $db = Database::instance()->db();
     $stmt = $db->prepare('SELECT * FROM stories');
     $stmt->execute();
-    return $stmt->fetch();
+    return $stmt->fetchAll();
   }
 
   function getThemes(){
