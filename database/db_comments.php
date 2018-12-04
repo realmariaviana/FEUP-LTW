@@ -72,10 +72,23 @@
     return $stmt->fetchAll();
   }
 
+  /**
+   * return all themes in database
+   */
   function getThemes(){
     $db = Database::instance()->db();
     $stmt = $db->prepare('SELECT DISTINCT theme FROM themes');
     $stmt->execute();
+    return $stmt->fetchAll();
+  }
+
+  /**
+   * return themes of a story
+   */
+  function getStoryThemes($id_story){
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT DISTINCT theme FROM themes WHERE story = ?');
+    $stmt->execute(array($id_story));
     return $stmt->fetchAll();
   }
 

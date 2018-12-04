@@ -73,6 +73,8 @@ include_once('../database/db_comments.php');
 
     foreach($stories as $story)
         drawStory($story);
+
+    unset($story);
  }
 
 
@@ -80,9 +82,28 @@ include_once('../database/db_comments.php');
      ?>
      <article>
          <h1><?= $story['title']?></h1>
-        <div id="userStory"> <?= $story['username']?></div>
+        <h4> <?= $story['username']?></h4>
         <p> <?=$story['body']?></p>
-        <footer><?= $story['hour']?></footer>
+        <footer class="storyFooter"><?= $story['hour']?> 
+        
+        <div class="tags">
+    <?php
+        $themes = getStoryThemes($story['story_id']);
+        foreach($themes as $theme) { 
+            foreach($theme as $value) ?>
+            <p class="tag"><?= "#" . $value?></p>
+        <?php }
+        unset($value);
+        unset($theme);
+     ?>
+     </div>
+    <p class="votes">
+        <img src="https://image.flaticon.com/icons/svg/25/25237.svg" width="20" height="20" alt="downVote" onclick="">
+        <img src="https://image.flaticon.com/icons/svg/25/25297.svg" width="20" height="20" alt="upVote" onclick="">
+
+</p> 
+    <label onclick="allcomments()">comments</label>
+        </footer>
         </article>
  
  <?php   }
