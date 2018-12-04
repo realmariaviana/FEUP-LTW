@@ -26,7 +26,7 @@ draw_header(null);
 
             <div class="password-block" data-validate = "Password is required">
                 <span class="label">Password</span>
-                <input class="input" type="password" name="pass" placeholder="Enter password">
+                <input class="input" type="password" name="password" placeholder="Enter password">
                 
             </div>
         </div>

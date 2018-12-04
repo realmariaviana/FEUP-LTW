@@ -12,7 +12,7 @@ CREATE TABLE users(
 );
 
 CREATE TABLE stories(
-  story_id INTEGER AUTO_INCREMENT PRIMARY KEY,
+  story_id INTEGER PRIMARY KEY,
   username VARCHAR NOT NULL REFERENCES users,
   title TEXT NOT NULL, 
   body TEXT NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE themes(
 );
 
 CREATE TABLE comments (
-  comment_id INTEGER AUTO_INCREMENT PRIMARY KEY,
+  comment_id INTEGER PRIMARY KEY,
   user_id VARCHAR NOT NULL REFERENCES users,
   story_id INTEGER NOT NULL REFERENCES stories,
   body TEXT NOT NULL,

@@ -16,7 +16,7 @@ draw_header(null);
         </a>
         <h2 class="text"><a href="profilePage.php" title="Profile">My User</a></h2>
         <p class="description">
-            <i>lalalaal</i>
+            <i><?=$_SESSION['username']?></i>
         </p>
     </div>
 <?php 

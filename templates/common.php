@@ -20,26 +20,17 @@
 </head>
 
 <body>
-    <div class="header">
+    <header>
         
-
         <?php if($username != null) { ?>
-           <nav> <ul>
-            <li><?=$username?></li>
-            <li><a href="../actions/user_logout.php">Logout</a> </li>
-            </ul>
-        <?php } ?>
-
-            <?php if($username == null){?>
-                <div class="topnav">
-                    
-                <div class="links">              
-                <a href="../actions/user_logout.php">Logout</a>
-                <a href="../pages/profilePage.php">Profile</a>
-                <a href="../pages/mainPage.php">Home</a>
-                </div>
+           <nav>
+           <div class="topnav">
+            <p><?=$username?></p>
+            <a href="../actions/user_logout.php">Logout</a>
+            <a href="../pages/profilePage.php">Profile</a> 
+            <a href="../pages/mainPage.php">Home</a>               
             </div>
-            <?php } ?>
+        <?php }  ?>
         </nav>
 
     </header>

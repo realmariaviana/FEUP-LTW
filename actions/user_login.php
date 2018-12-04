@@ -5,9 +5,6 @@ include_once('../includes/session.php');
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-echo $username;
-echo $password;
-echo 'pirilau';
 if (checkUserPassword($username, $password)) {
     $_SESSION['username'] = $username;
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Loggin success');
