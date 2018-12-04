@@ -1,0 +1,30 @@
+html, body, .sidebar, .content-posts {
+    height: 100%;
+}
+
+body {
+    background: #edf1f5;
+    font-family: Poppins, sans-serif;
+}
+
+a {
+    color: #404040;
+    text-decoration: none;
+}
+
+h2 {  font-size:22px; }
+
+.img-user {
+    width: 90%;
+    margin-left: 5%;
+}
+
+.sidebar {
+    box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+    position: fixed;
+    width: 240px;
+    top: 0px;
+    padding: 50px 10px 0px 10px;
+    background: #ffffff;
+    z-index: 99;
+}
