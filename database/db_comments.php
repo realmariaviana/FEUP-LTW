@@ -92,4 +92,13 @@
     return $stmt->fetchAll();
   }
 
+/**
+ * return the comments of a story
+ */
+  function getComments($story_id){
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT * FROM comments where story_id = ? ORDER BY hour DESC');
+    $stmt->execute(array($story_id));
+    return $stmt->fetchAll();
+  }
 ?>

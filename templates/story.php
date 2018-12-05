@@ -80,7 +80,7 @@ include_once('../database/db_comments.php');
 
  function drawStory($story){
      ?>
-     <article>
+     <article id="<?= $story['story_id']?>" class="story">
          <h1><?= $story['title']?></h1>
         <h4> <?= $story['username']?></h4>
         <p> <?=$story['body']?></p>
@@ -91,7 +91,7 @@ include_once('../database/db_comments.php');
         $themes = getStoryThemes($story['story_id']);
         foreach($themes as $theme) { 
             foreach($theme as $value) ?>
-            <p class="tag"><?= "#" . $value?></p>
+            <p class="tag" ><?= "#" . $value?></p>
         <?php }
         unset($value);
         unset($theme);
@@ -102,7 +102,7 @@ include_once('../database/db_comments.php');
         <img src="https://image.flaticon.com/icons/svg/25/25297.svg" width="20" height="20" alt="upVote" onclick="">
 
 </p> 
-    <label onclick="allcomments()">comments</label>
+    <label class="comment" data-id="<?= $story['story_id']?>">comments</label>
         </footer>
         </article>
  
