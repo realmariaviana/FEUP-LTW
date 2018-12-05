@@ -3,16 +3,26 @@ html, body, .sidebar, .content-posts {
 }
 
 body {
-    background: #edf1f5;
+    background: #ffeac6;
     font-family: Poppins, sans-serif;
 }
 
 a {
-    color: #404040;
+    color: black;
     text-decoration: none;
 }
 
-h2 {  font-size:22px; }
+h2 {  font-size:18px;
+    text-align: center;
+}
+
+img {
+    border-radius: 40%;
+}
+
+.sidebar {
+    background:black; 
+}
 
 .img-user {
     width: 90%;
@@ -20,11 +30,11 @@ h2 {  font-size:22px; }
 }
 
 .sidebar {
-    box-shadow: 1px 0px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 1px 0px 20px;
+    background: rgba(255,255,255, 0.3);
     position: fixed;
     width: 240px;
     top: 0px;
     padding: 50px 10px 0px 10px;
-    background: #ffffff;
     z-index: 99;
 }
