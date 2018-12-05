@@ -1,8 +1,9 @@
 'use strict'
 
 let storiesComments = document.querySelectorAll('.comment');
-storiesComments.forEach((s) => s.bool = true);
-storiesComments.forEach((storiesComments) => storiesComments.addEventListener('click', openComments));
+
+storiesComments.forEach((storiesComments) => (storiesComments.addEventListener('click', openComments), storiesComments.bool=true));
+
 function openComments(event) {
     let comment = event.target
     let id = comment.getAttribute('data-id')
@@ -12,15 +13,14 @@ function openComments(event) {
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     request.addEventListener("load", function () {
         let comments = JSON.parse(this.responseText);
-        console.log(comments);
-       
+
         if (comment.bool)
             writeComments(comments, id);
         else
             deleteComments();
 
-            comment.bool = !comment.bool;
- 
+        comment.bool = !comment.bool;
+
     })
 
     request.send(encodeForAjax({ story_id: id }))
@@ -33,10 +33,19 @@ function writeComments(comments, id) {
     let divComments = document.createElement("div");
     divComments.id = "delete";
     comments.forEach(element => {
+        let h5 = document.createElement("h5");
+        let h5text = document.createTextNode(element.user_id);
+        h5.appendChild(h5text);
         let p = document.createElement("p");
         let textNode = document.createTextNode(element.body);
         p.appendChild(textNode);
-        divComments.appendChild(p);
+        let date = document.createElement("footer");
+        date.appendChild(document.createTextNode(element.hour));
+        let container = document.createElement("div");
+        container.appendChild(h5);
+        container.appendChild(p);
+        container.appendChild(date);
+        divComments.appendChild(container);
     });
 
     let article = document.getElementById(id);
