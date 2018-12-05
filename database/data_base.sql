@@ -65,9 +65,10 @@ INSERT INTO stories Values(1,"Gansini", "A bela Faculdade", "É sempre top tar n
 INSERT INTO stories Values(2,"Gansini", "Faculdade de Merda", "Mas isto às vezes chateia", datetime('now'));
 INSERT INTO stories Values(3,"sheila1", "Dormir", "Eu devia estar mesmo a nanar a esta hora", datetime('now'));
 INSERT INTO stories Values(4,"sheila2", "PUTA QUE PARIU ESTA MERDA", "FODACE CARALHO PQP", datetime('now'));
-INSERT INTO comments Values(1, "sheila2", "A bela Faculdade", "LOL, TAVA BEM SEM ESTA MERDA", datetime('now'));
-INSERT INTO comments Values(2, "sheila1", "PUTA QUE PARIU ESTA MERDA", "same <3", datetime('now'));
-INSERT Into comments Values(3, "Gansini", "Faculdade de Merda", "Nunca disse algo tão certo", datetime('now'));
+INSERT INTO comments Values(1, "sheila2", 1, "LOL, TAVA BEM SEM ESTA MERDA", datetime('now'));
+INSERT INTO comments Values(2, "sheila1", 4, "same <3", datetime('now'));
+INSERT INTO comments Values(4, "sheila1", 1, "Tava nada", datetime('now'));
+INSERT Into comments Values(3, "Gansini", 2, "Nunca disse algo tão certo", datetime('now'));
 INSERT INTO themes Values("School", 1);
 INSERT INTO themes Values("Preguiça", 3);
 Insert INTO themes Values("Palavrões", 4);
