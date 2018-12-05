@@ -12,11 +12,13 @@ draw_header($_SESSION['username']);
 
     <div class="sidebar">
         <a href="profilePage.php" title="Profile">
-            <img src="images/feup.png" alt="User name" class="img-user">
+            <img src="images/0.jpg" alt="User name" class="img-user">
         </a>
-        <h2 class="text"><a href="profilePage.php" title="Profile">My User</a></h2>
+        <h2 class="text"><a href="profilePage.php" title="Profile"></a>
+        <i><?=$_SESSION['username']?></i>
+        </h2>
         <p class="description">
-            <i><?=$_SESSION['username']?></i>
+            
         </p>
     </div>
 <?php 
