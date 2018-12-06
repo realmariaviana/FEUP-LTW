@@ -45,24 +45,6 @@ include_once('../database/db_comments.php');
 
 
 <?php 
-/**
- * Draw a comment Box 
- */
-
-   function draw_comment_form(){
-?>
-
-        <form id="commentForm" method="post" action="../actions/add_comment.php">
-        
-        <textarea name="commentArea" id="commentArea" cols="30" rows="10" form="commentForm">Comment...</textarea>
-        <button type="submit" classe="commentSubmit">Comment</button>
-
-        </form>
-
-    <?php } ?>
-
-
-<?php 
 
 /**
  * Draw stories 

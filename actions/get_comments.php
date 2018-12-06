@@ -12,8 +12,8 @@ if(!isset($_SESSION['username']))
 
 
     $story_id = $_POST['story_id'];
- 
+   
     $comments = getComments($story_id);
-    $open = true;
-    echo json_encode($comments, $open);
+
+    echo json_encode($comments);
 ?>

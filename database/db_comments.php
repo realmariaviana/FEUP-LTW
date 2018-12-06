@@ -29,7 +29,7 @@
   function insertComment($user_id, $story_id, $body, $hour){
     $db = Database::instance()->db();
     $stmt = $db->prepare('INSERT INTO comments VALUES(NULL, ?, ?, ?, ?)');
-    $stmt->execute(array($username, $title, $body, $hour));   
+    $stmt->execute(array($user_id, $story_id, $body, $hour));   
   
   }
 
@@ -101,4 +101,7 @@
     $stmt->execute(array($story_id));
     return $stmt->fetchAll();
   }
+
+
+
 ?>
