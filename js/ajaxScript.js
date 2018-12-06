@@ -17,7 +17,7 @@ function openComments(event) {
         if (comment.bool)
             writeComments(comments, id);
         else
-            deleteComments();
+            deleteComments(id);
 
         comment.bool = !comment.bool;
 
@@ -31,7 +31,8 @@ function openComments(event) {
 function writeComments(comments, id) {
 
     let divComments = document.createElement("div");
-    divComments.id = "delete";
+    divComments.id = "delete-" + id;
+    divComments.className = "commentsContainer";
     comments.forEach(element => {
         let h5 = document.createElement("h5");
         let h5text = document.createTextNode(element.user_id);
@@ -54,11 +55,11 @@ function writeComments(comments, id) {
     AddComment(article, id);
 };
 
-function deleteComments() {
-    let comments = document.getElementById("delete");
+function deleteComments(id) {
+    let comments = document.getElementById("delete-" + id);
     comments.parentNode.removeChild(comments);
 
-    let comments1 = document.getElementById("newComment");
+    let comments1 = document.getElementById("newComment-" +id);
 
     comments1.parentNode.removeChild(comments1);
 };
@@ -71,11 +72,11 @@ function deleteComments() {
  *  */
 function AddComment(article, id) {
     let newComment = document.createElement("div");
-    newComment.id = "newComment";
+    newComment.id = "newComment-" + id;
+    newComment.className = "newCommentContainer";
 
     let commentArea = document.createElement("textarea");
     commentArea.id = "commentTextArea-" + id;
-
 
     let sendButton = document.createElement("button");
     sendButton.id = "sendCommentButton";
@@ -104,7 +105,7 @@ function sendComment(event) {
     request.addEventListener("load", function () {
         let comments = JSON.parse(this.responseText);
 
-        deleteComments();
+        deleteComments(commentId);
         writeComments(comments, commentId);
     });
 
