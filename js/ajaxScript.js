@@ -79,12 +79,14 @@ function AddComment(article, id) {
     commentArea.id = "commentTextArea-" + id;
 
     let sendButton = document.createElement("button");
-    sendButton.id = "sendCommentButton";
+    sendButton.id = "sendCommentButton" + id;
 
-    // let sendButtonImg = document.createElement("img");
-    //   sendButtonImg.src = "https://image.flaticon.com/icons/svg/60/60525.svg"
-    //sendButtonImg.width = 10;
-    //sendButtonImg.height = 10;
+    let sendButtonImg = document.createElement("img");
+    sendButtonImg.id = "imgButton-" + id;
+    sendButtonImg.src = "https://image.flaticon.com/icons/svg/60/60525.svg"
+    sendButtonImg.width = 10;
+    sendButtonImg.height = 10;
+    sendButton.appendChild(sendButtonImg);
 
     sendButton.addEventListener("click", sendComment);
     newComment.appendChild(commentArea);
@@ -94,8 +96,9 @@ function AddComment(article, id) {
 }
 
 function sendComment(event) {
-    let button = event.target;
-    let commentId = button.parentNode.parentNode.getAttribute("id");
+    let button = event.target.getAttribute('id');
+    console.log(event.target);
+    let commentId = button.slice(-1);
     let text = document.getElementById("commentTextArea-" + commentId).value;
     if (!text)
         return;
