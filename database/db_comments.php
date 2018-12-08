@@ -8,9 +8,15 @@
     $db = Database::instance()->db();
     $stmt = $db->prepare('INSERT INTO stories VALUES(NULL, ?,?,?,?)');
     $stmt->execute(array($username, $title, $body, $hour));
-    return $db->lastInsertRowID();
   }
 
+  function getStoryId($username, $title, $body, $hour){
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT story_id as id FROM stories WHERE username = ? AND title = ? AND body = ? AND hour = ?');
+    $stmt->execute(array($username, $title, $body, $hour));
+    return $stmt->fetch();
+ 
+  }
   /**
    * Insert theme
    */
@@ -18,8 +24,7 @@
    function insertTheme($id, $theme){
     $db = Database::instance()->db();
     $stmt = $db->prepare('INSERT INTO themes VALUES(?, ?)');
-    $stmt->execute(array($theme, $id));   
-  
+    $stmt->execute(array($theme, $id));
    }
 
   /** 

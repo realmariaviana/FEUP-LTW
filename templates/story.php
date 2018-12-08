@@ -9,16 +9,17 @@ function draw_story_form(){
 
   ?>
   
-    <form method="post" action="../action/add_story.php" id="storyForm">
+    <form method="post" action="../actions/add_story.php" id="storyForm">
         
         <div class="newStory">
         
-        <label for="title"><b>Title</b></label>
-        <input type="text" name="title" placeholder="Title of the story">
+        <label for="title"><b>Title</b></label> <br>
+        <input type="text" name="title" placeholder="Title of the story" required><br>
         
         <label for="text">Body Text</label>
-        <textarea name="body" id="body" cols="30" rows="10" form="storyForm">I will tell you a big story...</textarea>
-
+        <br>
+        <textarea name="bodyForm" id="bodyForm" cols="100" rows="30" form="storyForm" placeholder="I will tell you a big story..." required></textarea>
+        <br>
         <div class="themes">
 
         <?php
@@ -28,13 +29,14 @@ function draw_story_form(){
 
         ?>
         
-        <input type="checkbox" name="themes[]" > <?php echo $k?> <br>
+        <input type="checkbox" name="themes[]"  value="<?= $k['theme'] ?>"> <?= $k['theme'] ?> <br>
         
     <?php }
     unset($k);
     ?>
     </div>
-        <input type="text" name="themes[other]"> Other<br>
+    <label for="otherTheme">Other: </label>
+        <input type="text" name="themes[]" placeholder="Other"><br><br>
         <button type="submit" class="PublishSubmit"> Publish</button>
     </div>
     </form>

@@ -17,7 +17,8 @@ CREATE TABLE stories(
   username VARCHAR NOT NULL REFERENCES users,
   title TEXT NOT NULL, 
   body TEXT NOT NULL,
-  hour DATETIME NOT NULL
+  hour DATETIME NOT NULL,
+  UNIQUE(username, title, body)
 );
 
 CREATE TABLE comments (
