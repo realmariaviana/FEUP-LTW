@@ -4,7 +4,8 @@
  * Draw a Story insertion
  */
 include_once('../database/db_comments.php');
-    function draw_story_form(){
+  
+function draw_story_form(){
 
   ?>
   
@@ -29,9 +30,6 @@ include_once('../database/db_comments.php');
         
         <input type="checkbox" name="themes[]" > <?php echo $k?> <br>
         
-        
-        
-    
     <?php }
     unset($k);
     ?>
@@ -50,9 +48,13 @@ include_once('../database/db_comments.php');
  * Draw stories 
  */
 
- function drawStories(){
+function drawStories(){
     $stories = getAllStories();
+?>
 
+<script src="../js/votes.js" defer></script>
+
+<?php
     foreach($stories as $story)
         drawStory($story);
 
@@ -73,15 +75,19 @@ include_once('../database/db_comments.php');
         $themes = getStoryThemes($story['story_id']);
         foreach($themes as $theme) { 
             foreach($theme as $value) ?>
-            <p class="tag" ><?= "#" . $value?></p>
+            <p id ="<?=$value?>" class="tag" ><?= "#" . $value?></p>
         <?php }
         unset($value);
         unset($theme);
      ?>
      </div>
     <p class="votes">
-        <img src="https://image.flaticon.com/icons/svg/25/25237.svg" width="20" height="20" alt="downVote" onclick="">
-        <img src="https://image.flaticon.com/icons/svg/25/25297.svg" width="20" height="20" alt="upVote" onclick="">
+    <label id="<?="number-down-votes-" . $story['story_id']?>" for="numberOfDownVotes"> <?=numberDownVotes($story['story_id'])['N']?></label>
+
+    <img class="downvote" id="<?="down-vote-" . $story['story_id']?>" src="https://image.flaticon.com/icons/svg/25/25237.svg" width="20" height="20" alt="downVote">
+     
+     <label id="<?="number-up-votes-" . $story['story_id']?>"for="numberOfupVotes"> <?=numberUpVotes($story['story_id'])['N']?></label>
+     <img class="upvote" id="<?="up-vote-" . $story['story_id']?>" src="https://image.flaticon.com/icons/svg/25/25297.svg" width="20" height="20" alt="upVote" >
 
 </p> 
     <label class="comment" data-id="<?= $story['story_id']?>">comments</label>

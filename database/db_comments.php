@@ -103,5 +103,45 @@
   }
 
 
+  /**
+   * return number of up votes
+   */
 
+  function numberUpVotes($story_id){
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT COUNT(*) as N FROM likes where story_id = ?');
+    $stmt->execute(array($story_id));
+    return $stmt->fetch();
+  }
+
+  
+  /**
+   * return number of up votes
+   */
+
+  function numberDownVotes($story_id ){
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT COUNT(*) as N FROM dislikes where story_id = ?');
+    $stmt->execute(array($story_id));
+    return $stmt->fetch();
+  }
+
+  function addVote($story_id, $username, $like){
+    $db = Database::instance()->db();
+    if($like === "true")
+      $stmt = $db->prepare('INSERT INTO likes Values(?,?)');  
+    else
+      $stmt = $db->prepare('INSERT INTO dislikes Values(?,?)');
+    $stmt->execute(array($story_id, $username));
+  }
+
+    function deleteVote($story_id, $username, $like){
+      $db = Database::instance()->db();
+      if($like === "true")
+      $stmt = $db->prepare('DELETE FROM likes where story_id = ? and username = ?');
+      else
+      $stmt = $db->prepare('DELETE FROM dislikes where story_id = ? and username = ?');
+      $stmt->execute(array($story_id, $username));
+      }
+  
 ?>

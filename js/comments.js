@@ -97,7 +97,6 @@ function AddComment(article, id) {
 
 function sendComment(event) {
     let button = event.target.getAttribute('id');
-    console.log(event.target);
     let commentId = button.slice(-1);
     let text = document.getElementById("commentTextArea-" + commentId).value;
     if (!text)

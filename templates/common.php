@@ -14,7 +14,7 @@
     <title> Cuscando</title>
     <meta charset="utf-8">
     <meta name="author" content="Carlos Daniel Gomes">
-    <script src="../js/ajaxScript.js" defer></script>
+    <script src="../js/comments.js" defer></script>
     <!-- if logged in show the account-->
 </head>
 

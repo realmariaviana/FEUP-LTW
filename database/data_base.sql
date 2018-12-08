@@ -52,11 +52,16 @@ CREATE TABLE dislikes(
 
 
 --NEED TO KNOW IF THE SINTAX IS RIGHT
-CREATE TRIGGER likes_dislike AFTER INSERT ON likes
-  When ((Select username, story_id from dislikes Where username = New.username AND story_id = NEW.story_id) NOT NULL) 
-  BEGIN  Delete from dislikes where username = New.username AND story_id = NEW.story_id;
+CREATE TRIGGER likesTodislike AFTER INSERT ON likes
+  When ((Select COUNT(story_id) from dislikes Where dislikes.username = New.username AND story_id = NEW.story_id) != 0) 
+  BEGIN  Delete from dislikes where dislikes.username = New.username AND dislikes.story_id = NEW.story_id;
 End;
 
+ CREATE TRIGGER dislikesTolikes AFTER INSERT ON dislikes
+  When ((Select Count(story_id) from likes Where likes.username = New.username AND likes.story_id = NEW.story_id) != 0) 
+  BEGIN  Delete from likes where likes.username = New.username AND likes.story_id = NEW.story_id;
+End;
+ 
 
 INSERT INTO users Values("sheila1", "rosa@gmail.com", "c7021fedf66cbda549838f07647e3489ce85990e");
 INSERT INTO users Values("sheila2", "pota@pota.com", "64fe28c207ce4605548a45b0230f71d97b45957b");
@@ -72,3 +77,5 @@ INSERT Into comments Values(3, "Gansini", 2, "Nunca disse algo tão certo", date
 INSERT INTO themes Values("School", 1);
 INSERT INTO themes Values("Preguiça", 3);
 Insert INTO themes Values("Palavrões", 4);
+
+INSERT INTO likes VALUES(1,"sheila1");
