@@ -9,7 +9,7 @@ downVotes.forEach((downvote) => (downvote.addEventListener("click", addDownVote)
 function addVote(event) {
     let vote = event.target
     let storyId = vote.getAttribute("id").slice(-1)
-  console.log("run up");
+
     let request = new XMLHttpRequest();
     request.open("post", "../actions/add_vote.php", true)
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -30,7 +30,7 @@ function addVote(event) {
 function addDownVote(event) {
     let vote = event.target
     let storyId = vote.getAttribute("id").slice(-1)
-console.log("run down");
+
     let request = new XMLHttpRequest();
     request.open("post", "../actions/add_vote.php", true)
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

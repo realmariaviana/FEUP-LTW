@@ -3,6 +3,8 @@ drop TABLE if exists stories;
 drop TABLE if exists comments;
 drop TABLE if exists likes;
 drop TABLE if exists dislikes;
+drop TABLE if exists likes_c;
+drop TABLE if exists dislikes_c;
 drop TABLE if exists themes;
 
 
@@ -51,8 +53,20 @@ CREATE TABLE dislikes(
 
 
 
+CREATE TABLE likes_c(
+  comment_id INTEGER REFERENCES comments,
+  username VARCHAR REFERENCES users,
+  PRIMARY KEY (comment_id, username)
+);
 
---NEED TO KNOW IF THE SINTAX IS RIGHT
+CREATE TABLE dislikes_c(
+  comment_id INTEGER REFERENCES comments,
+  username VARCHAR REFERENCES users,
+  PRIMARY KEY (comment_id, username)
+);
+
+
+
 CREATE TRIGGER likesTodislike AFTER INSERT ON likes
   When ((Select COUNT(story_id) from dislikes Where dislikes.username = New.username AND story_id = NEW.story_id) != 0) 
   BEGIN  Delete from dislikes where dislikes.username = New.username AND dislikes.story_id = NEW.story_id;
@@ -61,6 +75,18 @@ End;
  CREATE TRIGGER dislikesTolikes AFTER INSERT ON dislikes
   When ((Select Count(story_id) from likes Where likes.username = New.username AND likes.story_id = NEW.story_id) != 0) 
   BEGIN  Delete from likes where likes.username = New.username AND likes.story_id = NEW.story_id;
+End;
+
+
+
+CREATE TRIGGER likesTodislikeC AFTER INSERT ON likes_c
+  When ((Select COUNT(comment_id) from dislikes_c Where dislikes_c.username = New.username AND comment_id = NEW.comment_id) != 0) 
+  BEGIN  Delete from dislikes_c where dislikes_c.username = New.username AND dislikes_c.comment_id = NEW.comment_id;
+End;
+
+ CREATE TRIGGER dislikesTolikesC AFTER INSERT ON dislikes_c
+  When ((Select Count(comment_id) from likes_c Where likes_c.username = New.username AND likes_c.comment_id = NEW.comment_id) != 0) 
+  BEGIN  Delete from likes_c where likes_c.username = New.username AND likes_c.comment_id = NEW.comment_id;
 End;
  
 
@@ -80,3 +106,6 @@ INSERT INTO themes Values("Preguiça", 3);
 Insert INTO themes Values("Palavrões", 4);
 
 INSERT INTO likes VALUES(1,"sheila1");
+
+
+INSERT INTO likes_c VALUES(1,"sheila1");

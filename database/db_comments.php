@@ -149,4 +149,49 @@
       $stmt->execute(array($story_id, $username));
       }
   
+
+
+
+
+  /**
+   * return number of up votes for a comment
+   */
+
+  function numberUpVotesC($comment_id){
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT COUNT(*) as N FROM likes_c where comment_id = ?');
+    $stmt->execute(array($comment_id));
+    return $stmt->fetch();
+  }
+
+  
+  /**
+   * return number of up votes
+   */
+
+  function numberDownVotesC($comment_id ){
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT COUNT(*) as N FROM dislikes_c where comment_id = ?');
+    $stmt->execute(array($comment_id));
+    return $stmt->fetch();
+  }
+
+  function addVoteC($comment_id, $username, $like){
+    $db = Database::instance()->db();
+    if($like === "true")
+      $stmt = $db->prepare('INSERT INTO likes_c Values(?,?)');  
+    else
+      $stmt = $db->prepare('INSERT INTO dislikes_c Values(?,?)');
+    $stmt->execute(array($comment_id, $username));
+  }
+
+    function deleteVoteC($comment_id, $username, $like){
+      $db = Database::instance()->db();
+      if($like === "true")
+      $stmt = $db->prepare('DELETE FROM likes_c where comment_id = ? and username = ?');
+      else
+      $stmt = $db->prepare('DELETE FROM dislikes_c where comment_id = ? and username = ?');
+      $stmt->execute(array($comment_id, $username));
+      }
+
 ?>
