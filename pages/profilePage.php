@@ -8,7 +8,7 @@ include_once('../includes/session.php');
 
 draw_header($_SESSION['username']);
 ?>
-  <link rel="stylesheet" href="../css/mainPage.css">
+  <link rel="stylesheet" href="../css/profilePage.css">
 
     <div class="sidebar">
         <a href="profilePage.php" title="Profile">
