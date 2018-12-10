@@ -8,7 +8,6 @@ include_once('../database/db_comments.php');
 function draw_story_form(){
 
   ?>
-  
     <form method="post" action="../actions/add_story.php" id="storyForm">
         
         <div class="newStory">
@@ -68,7 +67,10 @@ function drawStories(){
      ?>
      <article id="<?= $story['story_id']?>" class="story">
          <h1><?= $story['title']?></h1>
-        <h4> <?= $story['username']?></h4>
+         <div>
+        <img class="avatar" src="images/0.jpg" alt="" />
+        <span> <?= $story['username']?></span>
+        </div>
         <p> <?=$story['body']?></p>
         <footer class="storyFooter"><?= $story['hour']?> 
         
@@ -92,7 +94,7 @@ function drawStories(){
      <img class="upvote" id="<?="up-vote-" . $story['story_id']?>" src="https://image.flaticon.com/icons/svg/25/25297.svg" width="20" height="20" alt="upVote" >
 
 </p> 
-    <label class="comment" data-id="<?= $story['story_id']?>">comments</label>
+    <label class="comment" data-id="<?= $story['story_id']?>">Comments</label>
         </footer>
         </article>
  
