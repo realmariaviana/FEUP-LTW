@@ -13,10 +13,16 @@ if(!isset($_SESSION['username']))
     $story_id = $_POST['story_id'];
     $text = $_POST['text'];
 
-insertComment($_SESSION['username'], $story_id, $text, gmdate('Y-m-d H:i:s'));
+insertComment($story_id, $_SESSION['username'], $text, gmdate('Y-m-d H:i:s'));
 
 $comments = getComments($story_id);
- 
+
+foreach($comments as &$bool){
+    $bool['voteup'] = votedup($bool['entity_id'], $_SESSION['username']);
+   $bool['votedown'] = voteddown($bool['entity_id'], $_SESSION['username']);
+   $bool['upvotes'] = numberUpVotes($bool['entity_id'])['N'];
+   $bool['downvotes'] = numberDownVotes($bool['entity_id'])['N'];
+}
 echo json_encode($comments);
 
 ?>

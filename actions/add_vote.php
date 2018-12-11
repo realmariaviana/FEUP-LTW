@@ -8,16 +8,19 @@ header('Content-Type: application/json');
 if(!isset($_SESSION['username']))
     die(json_encode(array('error' => 'not_logged_in')));
 
-    $story_id = $_POST['story_id'];
+    $entity_id = $_POST['entity_id'];
   
+
+
     try {
-        addVote($story_id, $_SESSION['username'], $_POST['vote']);
+        addVote($entity_id, $_SESSION['username'], $_POST['vote']);
    } catch (Exception $th) {
-        deleteVote($story_id, $_SESSION['username'], $_POST['vote']);
+        deleteVote($entity_id, $_SESSION['username'], $_POST['vote']);
         $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed voting!');  
-    }
+   }
     
-    echo json_encode([numberUpVotes($story_id), numberDownVotes($story_id)]);
+
+    echo json_encode([numberUpVotes($entity_id), numberDownVotes($entity_id), votedup($entity_id, $_SESSION['username']), voteddown($entity_id, $_SESSION['username'])]);
 
     
 ?>

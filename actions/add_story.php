@@ -15,8 +15,9 @@
 
     $hour = gmdate('Y-m-d H:i:s');
 
+
+    
     try{
-        
         insertStory($username, $title, $body, $hour);
         $id = getStoryId($username, $title, $body, $hour);
         $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Story published');

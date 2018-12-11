@@ -1,18 +1,35 @@
 <?php
   include_once('../includes/database.php');
 
+
+  /**
+   * Create a new entity and return its id
+   */
+  function entity() {
+    $db = Database::instance()->db();
+    
+    $stmt = $db->prepare('INSERT INTO entities VALUES(NULL)');
+    $stmt->execute();
+    $stmt = $db->prepare('SELECT last_insert_rowid() as id');
+    $stmt->execute();
+    $id = $stmt->fetch();
+    return $id['id'];
+  }
+
+
   /**
    * Inserts a new story into the database.
    */
   function insertStory($username, $title, $body, $hour) {
     $db = Database::instance()->db();
-    $stmt = $db->prepare('INSERT INTO stories VALUES(NULL, ?,?,?,?)');
-    $stmt->execute(array($username, $title, $body, $hour));
+    $id = entity();
+    $stmt = $db->prepare('INSERT INTO stories VALUES(?, ?, ?, ?, ?)');
+    $stmt->execute(array(intval($id), $username, $title, $body, $hour));
   }
 
   function getStoryId($username, $title, $body, $hour){
     $db = Database::instance()->db();
-    $stmt = $db->prepare('SELECT story_id as id FROM stories WHERE username = ? AND title = ? AND body = ? AND hour = ?');
+    $stmt = $db->prepare('SELECT entity_id as id FROM stories WHERE username = ? AND title = ? AND body = ? AND hour = ?');
     $stmt->execute(array($username, $title, $body, $hour));
     return $stmt->fetch();
  
@@ -23,6 +40,7 @@
 
    function insertTheme($id, $theme){
     $db = Database::instance()->db();
+    $id = entity();
     $stmt = $db->prepare('INSERT INTO themes VALUES(?, ?)');
     $stmt->execute(array($theme, $id));
    }
@@ -31,11 +49,11 @@
    * Inserts a new comment
    */
 
-  function insertComment($user_id, $story_id, $body, $hour){
+  function insertComment($entity_id, $user_id, $body, $hour){
     $db = Database::instance()->db();
-    $stmt = $db->prepare('INSERT INTO comments VALUES(NULL, ?, ?, ?, ?)');
-    $stmt->execute(array($user_id, $story_id, $body, $hour));   
-  
+    $id = entity();
+    $stmt = $db->prepare('INSERT INTO comments VALUES(?, ?, ?, ?, ?)');
+    $stmt->execute(array(intval($id), $entity_id, $user_id, $body, $hour));   
   }
 
   /**
@@ -90,20 +108,20 @@
   /**
    * return themes of a story
    */
-  function getStoryThemes($id_story){
+  function getStoryThemes($entity_id){
     $db = Database::instance()->db();
-    $stmt = $db->prepare('SELECT DISTINCT theme FROM themes WHERE story = ?');
-    $stmt->execute(array($id_story));
+    $stmt = $db->prepare('SELECT DISTINCT theme FROM entityThemes WHERE entity_id = ?');
+    $stmt->execute(array($entity_id));
     return $stmt->fetchAll();
   }
 
 /**
  * return the comments of a story
  */
-  function getComments($story_id){
+  function getComments($entity_id){
     $db = Database::instance()->db();
     $stmt = $db->prepare('SELECT * FROM comments where story_id = ? ORDER BY hour DESC');
-    $stmt->execute(array($story_id));
+    $stmt->execute(array($entity_id));
     return $stmt->fetchAll();
   }
 
@@ -112,10 +130,10 @@
    * return number of up votes
    */
 
-  function numberUpVotes($story_id){
+  function numberUpVotes($entity_id){
     $db = Database::instance()->db();
-    $stmt = $db->prepare('SELECT COUNT(*) as N FROM likes where story_id = ?');
-    $stmt->execute(array($story_id));
+    $stmt = $db->prepare('SELECT COUNT(*) as N FROM likes where entity_id = ?');
+    $stmt->execute(array($entity_id));
     return $stmt->fetch();
   }
 
@@ -124,74 +142,43 @@
    * return number of up votes
    */
 
-  function numberDownVotes($story_id ){
+  function numberDownVotes($entity_id){
     $db = Database::instance()->db();
-    $stmt = $db->prepare('SELECT COUNT(*) as N FROM dislikes where story_id = ?');
-    $stmt->execute(array($story_id));
+    $stmt = $db->prepare('SELECT COUNT(*) as N FROM dislikes where entity_id = ?');
+    $stmt->execute(array($entity_id));
     return $stmt->fetch();
   }
 
-  function addVote($story_id, $username, $like){
+  function addVote($entity_id, $username, $like){
     $db = Database::instance()->db();
     if($like === "true")
       $stmt = $db->prepare('INSERT INTO likes Values(?,?)');  
     else
       $stmt = $db->prepare('INSERT INTO dislikes Values(?,?)');
-    $stmt->execute(array($story_id, $username));
+    $stmt->execute(array($entity_id, $username));
   }
 
-    function deleteVote($story_id, $username, $like){
+    function deleteVote($entity_id, $username, $like){
       $db = Database::instance()->db();
       if($like === "true")
-      $stmt = $db->prepare('DELETE FROM likes where story_id = ? and username = ?');
+      $stmt = $db->prepare('DELETE FROM likes where entity_id = ? and username = ?');
       else
-      $stmt = $db->prepare('DELETE FROM dislikes where story_id = ? and username = ?');
-      $stmt->execute(array($story_id, $username));
-      }
-  
-
-
-
-
-  /**
-   * return number of up votes for a comment
-   */
-
-  function numberUpVotesC($comment_id){
-    $db = Database::instance()->db();
-    $stmt = $db->prepare('SELECT COUNT(*) as N FROM likes_c where comment_id = ?');
-    $stmt->execute(array($comment_id));
-    return $stmt->fetch();
-  }
-
-  
-  /**
-   * return number of up votes
-   */
-
-  function numberDownVotesC($comment_id ){
-    $db = Database::instance()->db();
-    $stmt = $db->prepare('SELECT COUNT(*) as N FROM dislikes_c where comment_id = ?');
-    $stmt->execute(array($comment_id));
-    return $stmt->fetch();
-  }
-
-  function addVoteC($comment_id, $username, $like){
-    $db = Database::instance()->db();
-    if($like === "true")
-      $stmt = $db->prepare('INSERT INTO likes_c Values(?,?)');  
-    else
-      $stmt = $db->prepare('INSERT INTO dislikes_c Values(?,?)');
-    $stmt->execute(array($comment_id, $username));
-  }
-
-    function deleteVoteC($comment_id, $username, $like){
-      $db = Database::instance()->db();
-      if($like === "true")
-      $stmt = $db->prepare('DELETE FROM likes_c where comment_id = ? and username = ?');
-      else
-      $stmt = $db->prepare('DELETE FROM dislikes_c where comment_id = ? and username = ?');
-      $stmt->execute(array($comment_id, $username));
+      $stmt = $db->prepare('DELETE FROM dislikes where entity_id = ? and username = ?');
+      $stmt->execute(array($entity_id, $username));
       }
 
+  
+  function votedup($entity_id,$username){
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT * FROM likes where entity_id = ? and username = ?');
+    $stmt->execute(array($entity_id, $username));
+    return $stmt->fetch()?true:false;
+  }
+
+  function voteddown($entity_id,$username){
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT * FROM dislikes where entity_id = ? and username = ?');
+    $stmt->execute(array($entity_id, $username));
+    return $stmt->fetch()?true:false;
+  }
 ?>

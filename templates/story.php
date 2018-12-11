@@ -65,8 +65,8 @@ function drawStories(){
 
  function drawStory($story){
      ?>
-     <article id="<?= $story['story_id']?>" class="story">
-         <h1><?= $story['title']?></h1>
+     <article id="<?= $story['entity_id']?>" class="story">
+         <h1> <?= $story['title']?> </h1>
          <div>
         <img class="avatar" src="images/0.jpg" alt="" />
         <span> <?= $story['username']?></span>
@@ -76,7 +76,7 @@ function drawStories(){
         
         <div class="tags">
     <?php
-        $themes = getStoryThemes($story['story_id']);
+        $themes = getStoryThemes($story['entity_id']);
         foreach($themes as $theme) { 
             foreach($theme as $value) ?>
             <p id ="<?=$value?>" class="tag" ><?= "#" . $value?></p>
@@ -86,15 +86,24 @@ function drawStories(){
      ?>
      </div>
     <p class="votes">
-    <label id="<?="number-down-votes-" . $story['story_id']?>" for="numberOfDownVotes"> <?=numberDownVotes($story['story_id'])['N']?></label>
+    <label id="<?="number-down-votes-" . $story['entity_id']?>" for="numberOfDownVotes"> <?=numberDownVotes($story['entity_id'])['N']?></label>
 
-    <img class="downvote" id="<?="down-vote-" . $story['story_id']?>" src="https://image.flaticon.com/icons/svg/25/25237.svg" width="20" height="20" alt="downVote">
+    <?php if(voteddown($story['entity_id'], $_SESSION['username'])){?>
+    <img class="downvote" id="<?="down-vote-" . $story['entity_id']?>" src="https://image.flaticon.com/icons/svg/25/25395.svg" width="20" height="20" alt="downVote">
+    <?php } else{ ?>
+   
+    <img class="downvote" id="<?="down-vote-" . $story['entity_id']?>" src="https://image.flaticon.com/icons/svg/25/25237.svg" width="20" height="20" alt="downVote">
+<?php } ?>
+
+     <label id="<?="number-up-votes-" . $story['entity_id']?>"for="numberOfupVotes"> <?=numberUpVotes($story['entity_id'])['N']?></label>
+     <?php if(votedup($story['entity_id'], $_SESSION['username'])){?>
+     <img class="upvote" id="<?="up-vote-" . $story['entity_id']?>" src="https://image.flaticon.com/icons/svg/25/25423.svg" width="20" height="20" alt="upVote" >
+     <?php } else{ ?>
      
-     <label id="<?="number-up-votes-" . $story['story_id']?>"for="numberOfupVotes"> <?=numberUpVotes($story['story_id'])['N']?></label>
-     <img class="upvote" id="<?="up-vote-" . $story['story_id']?>" src="https://image.flaticon.com/icons/svg/25/25297.svg" width="20" height="20" alt="upVote" >
-
+     <img class="upvote" id="<?="up-vote-" . $story['entity_id']?>" src="https://image.flaticon.com/icons/svg/25/25297.svg" width="20" height="20" alt="upVote" >
+     <?php } ?>
 </p> 
-    <label class="comment" data-id="<?= $story['story_id']?>">Comments</label>
+    <label class="comment" data-id="<?= $story['entity_id']?>">Comments</label>
         </footer>
         </article>
  

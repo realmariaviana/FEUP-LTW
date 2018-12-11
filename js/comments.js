@@ -7,6 +7,7 @@ storiesComments.forEach((storiesComments) => (storiesComments.addEventListener('
 function openComments(event) {
     let comment = event.target
     let id = comment.getAttribute('data-id')
+
     let texts = null;
     let request = new XMLHttpRequest()
     request.open("post", "../actions/get_comments.php", true)
@@ -24,7 +25,7 @@ function openComments(event) {
     })
 
     request.send(encodeForAjax({
-        story_id: id,
+        entity_id: id,
         text: texts
     }))
 
@@ -36,32 +37,25 @@ function writeComments(comments, id) {
     let divComments = document.createElement("div");
     divComments.id = "delete-" + id;
     divComments.className = "commentsContainer";
+  
     comments.forEach(element => {
-        let voteup = document.createElement("label");
-        let votedown = document.createElement("label");
-        votedown.id = "notLike-" + element.comment_id;
-        voteup.id = "like-" + element.comment_id;
-        votedown.innerHTML = "dont like"
-        voteup.innerHTML = "like"
-        voteup.addEventListener("click", voteUpComment);
-        votedown.addEventListener("click", voteUpComment);
-
+        
         let h5 = document.createElement("h5");
-        let h5text = document.createTextNode(element.user_id);
-        h5.appendChild(h5text);
+        h5.innerHTML=element.username;
+       
         let p = document.createElement("p");
-        let votezone = document.createElement("p");
-        votezone.id = "votezone";
-        let textNode = document.createTextNode(element.body);
-        p.appendChild(textNode);
+         
+        p.innerHTML = element.body
+
+       
         let date = document.createElement("footer");
-        date.appendChild(document.createTextNode(element.hour));
+        date.innerHTML = element.hour;
+
         let container = document.createElement("div");
-        votezone.appendChild(votedown);
-        votezone.appendChild(voteup);
+       
         container.appendChild(h5);
         container.appendChild(p);
-        container.appendChild(votezone);
+        container.appendChild(votes(element));
         container.appendChild(date);
         divComments.appendChild(container);
     });
@@ -80,6 +74,61 @@ function deleteComments(id) {
 
     comments1.parentNode.removeChild(comments1);
 };
+
+
+function votes(element){
+
+    let voteupcount = document.createElement("label");
+    let votedowncount = document.createElement("label");
+
+    voteupcount.id = "number-up-votes-" + element.entity_id;
+    votedowncount.id = "number-down-votes-" + element.entity_id;
+   
+    voteupcount.innerHTML = element.upvotes;
+    votedowncount.innerHTML = element.downvotes;
+    let voteup = document.createElement("img");
+    let votedown = document.createElement("img");
+
+
+    if(element.voteup)
+    voteup.src = "https://image.flaticon.com/icons/svg/25/25423.svg"
+    else
+    voteup.src = "https://image.flaticon.com/icons/svg/25/25297.svg" 
+
+    voteup.width="15" 
+    voteup.height="15"
+    voteup.alt="upVote"
+
+
+    if(element.votedown)
+    votedown.src = "https://image.flaticon.com/icons/svg/25/25395.svg"
+    else
+    votedown.src = "https://image.flaticon.com/icons/svg/25/25237.svg"
+
+    votedown.width="15" 
+    votedown.height="15"
+    votedown.alt="downVote"
+
+
+
+    voteup.id = "up-vote-" + element.entity_id;
+    votedown.id = "down-vote-" + element.entity_id;
+    
+    voteup.addEventListener("click", addVote);
+    votedown.addEventListener("click", addDownVote);
+
+
+
+    let votezone = document.createElement("p");
+    votezone.id = "votezone";
+    votezone.appendChild(votedowncount);
+    votezone.appendChild(votedown);
+    votezone.appendChild(voteupcount);
+    votezone.appendChild(voteup);
+
+    return votezone;
+
+}
 
 /**
  * 
@@ -136,61 +185,6 @@ function sendComment(event) {
 
 }
 
-
-function voteUpComment(event) {
-    let vote = event.target
-    let name = vote.getAttribute("id");
-    let commentId = name.slice(-1)
-    let type = name.substring(0, name.length - 2);
-
-    let request = new XMLHttpRequest();
-    request.open("post", "../actions/add_comment_vote.php", true)
-    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    request.addEventListener("load", function () {
-        let votes = JSON.parse(this.responseText);
-
-        updateVotes(votes, commentId, type === "like");
-    })
-
-    request.send(encodeForAjax({
-        comment_id: commentId,
-        vote: type === "like"
-    }))
-
-
-
-}
-
-
-function voteDownComment(event) {
-    let vote = event.target
-    let commentId = vote.getAttribute("id").slice(-1)
-
-    let request = new XMLHttpRequest();
-    request.open("post", "../actions/add_comment_vote.php", true)
-    request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    request.addEventListener("load", function () {
-        let votes = JSON.parse(this.responseText);
-        updateCommentVotes(votes, commentId, false);
-
-    })
-
-    request.send(encodeForAjax({
-        comment_id: storyId,
-        vote: false
-    }))
-
-
-}
-
-
-function updateCommentVotes(votes, commentId) {
-    elem1 = document.getElementById("like-" + commentId);
-    elem2 = document.getElementById("notLike-" + commentId);
-
-    elem1.innerHTML = votes[0]['N'];
-    elem2.innerHTML = votes[1]['N']
-}
 
 // Helper function
 function encodeForAjax(data) {
