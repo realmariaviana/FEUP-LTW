@@ -11,7 +11,7 @@
 <html>
 
 <head>
-    <title> Cuscando</title>
+    <title> SociStory</title>
     <meta charset="utf-8">
     <meta name="author" content="Carlos Daniel Gomes">
     <script src="../js/comments.js" defer></script>
