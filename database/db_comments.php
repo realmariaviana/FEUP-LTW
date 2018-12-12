@@ -61,7 +61,7 @@
    */
   function getStory($story_id) {
     $db = Database::instance()->db();
-    $stmt = $db->prepare('SELECT * FROM stories WHERE story_id = ?');
+    $stmt = $db->prepare('SELECT * FROM stories WHERE entity_id = ?');
     $stmt->execute(array($story_id));
     return $stmt->fetch();
   }
@@ -71,7 +71,7 @@
    */
   function deleteStory($story_id) {
     $db = Database::instance()->db();
-    $stmt = $db->prepare('DELETE FROM stories WHERE story_id = ?');
+    $stmt = $db->prepare('DELETE FROM stories WHERE entity_id = ?');
     $stmt->execute(array($story_id));
   }
  
@@ -181,4 +181,36 @@
     $stmt->execute(array($entity_id, $username));
     return $stmt->fetch()?true:false;
   }
+
+  function getStoriesWiththeme($theme){
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT entity_id FROM entityThemes WHERE theme = ?');
+    $stmt->execute(array($theme));
+    return $stmt->fetchAll();
+  }
+
+  function themePattern($pattern){
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT theme as N FROM themes WHERE theme LIKE ? LIMIT 10');
+    $stmt->execute(array("%".$pattern."%"));
+    return $stmt->fetchAll();
+  }
+
+
+  function usernamePattern($pattern){
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT username as N FROM users WHERE username LIKE ? LIMIT 10');
+    $stmt->execute(array("%".$pattern."%"));
+    return $stmt->fetchAll();
+  }
+
+  function storiesPattern($pattern){
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT title as N FROM stories WHERE title LIKE ? OR body LIKE ? LIMIT 10');
+    $stmt->execute(array("%".$pattern."%", "%".$pattern."%"));
+    return $stmt->fetchAll();
+  }
+
+
+
 ?>

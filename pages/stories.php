@@ -7,7 +7,7 @@ include_once('../includes/session.php');
 if(!isset($_SESSION['username']))
     die(header('Location: ../pages/login.php'));
     ?>
-    <link rel="stylesheet" href="../css/mainPage.css">
+   <!--- <link rel="stylesheet" href="../css/mainPage.css">--->
 
 <?php 
 draw_header($_SESSION['username']);

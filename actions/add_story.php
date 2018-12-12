@@ -26,8 +26,6 @@
            if($themes[$i] != "")
             insertTheme($id['id'], strtolower($themes[$i]));
         }
-        
-     
         unset($theme);
    }catch (Exception $e){
         echo 'ERROR' . $e->getMessage() . '\n';

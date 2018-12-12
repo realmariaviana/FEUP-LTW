@@ -79,7 +79,7 @@ function drawStories(){
         $themes = getStoryThemes($story['entity_id']);
         foreach($themes as $theme) { 
             foreach($theme as $value) ?>
-            <p id ="<?=$value?>" class="tag" ><?= "#" . $value?></p>
+            <p id ="<?=$value?>" class="tag" ><a href="../pages/themePage.php?id=<?=$value?>"><?= "#" . $value?></a></p>
         <?php }
         unset($value);
         unset($theme);
