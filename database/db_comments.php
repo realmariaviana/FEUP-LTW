@@ -1,7 +1,6 @@
 <?php
   include_once('../includes/database.php');
 
-
   /**
    * Create a new entity and return its id
    */
@@ -45,6 +44,16 @@
    }
 
    
+   /**
+    * return user Info
+    */
+    function getUsernameInfo($username){
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT * FROM users where username = ?');
+    $stmt->execute(array($username));
+    return $stmt->fetch();
+    }
+
 /**
    * Insert theme with storie associated
    */
@@ -67,6 +76,30 @@
     $stmt = $db->prepare('INSERT INTO comments VALUES(?, ?, ?, ?, ?)');
     $stmt->execute(array(intval($id), $entity_id, $user_id, $body, $hour));   
   }
+
+  /**
+   * return titile of stories that $username commented
+   */
+  function myComments($username) {
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT title FROM stories,comments
+     WHERE comments.username = ? 
+     AND story_id = stories.entity_id');
+    $stmt->execute(array($username));
+    return $stmt->fetchAll();
+  }
+
+
+  /**
+   * return stories title of an user
+   */
+  function myStories($username) {
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT title FROM stories WHERE username = ?');
+    $stmt->execute(array($username));
+    return $stmt->fetchAll();
+  }
+
 
   /**
    * Returns a certain story from the database.

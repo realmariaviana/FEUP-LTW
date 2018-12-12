@@ -38,7 +38,7 @@
             if($bool)
                 insertEntityTheme($id['id'],strtolower($themes[$i]));
            
-                $bool = true;
+            $bool = true;
     }
    
    
