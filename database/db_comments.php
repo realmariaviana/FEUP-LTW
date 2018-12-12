@@ -38,12 +38,24 @@
    * Insert theme
    */
 
-   function insertTheme($id, $theme){
+   function insertTheme($theme){
     $db = Database::instance()->db();
-    $id = entity();
-    $stmt = $db->prepare('INSERT INTO themes VALUES(?, ?)');
-    $stmt->execute(array($theme, $id));
+    $stmt = $db->prepare('INSERT INTO themes VALUES(?)');
+    $stmt->execute(array($theme));
    }
+
+   
+/**
+   * Insert theme with storie associated
+   */
+
+  function insertEntityTheme($id, $theme){
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('INSERT INTO entityThemes VALUES(?,?)');
+    $stmt->execute(array($id, $theme));
+   }
+
+   
 
   /** 
    * Inserts a new comment
