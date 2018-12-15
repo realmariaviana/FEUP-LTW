@@ -10,9 +10,10 @@ header('Content-Type: application/json');
 if(!isset($_SESSION['username']))
     die(json_encode(array('error' => 'not_logged_in')));
 
-    $story_id = $_POST['story_id'];
-    $text = $_POST['text'];
+    $story_id = htmlspecialchars($_POST['story_id']);
+    $text = htmlspecialchars($_POST['text']);
 
+    
 insertComment($story_id, $_SESSION['username'], $text, gmdate('Y-m-d H:i:s'));
 
 $comments = getComments($story_id);

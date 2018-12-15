@@ -2,9 +2,9 @@
 include_once('../database/db_user.php');
 include_once('../includes/session.php');
 
-$username = $_POST['username'];
+$username = htmlspecialchars($_POST['username']);
 $password = $_POST['psw-repeat'];
-$email = $_POST['email'];
+$email = htmlspecialchars($_POST['email']);
 
 if ( !preg_match ("/^[a-zA-Z0-9]+$/", $username)) {
     $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Username can only contain letters and numbers!');

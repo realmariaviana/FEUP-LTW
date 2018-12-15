@@ -21,22 +21,23 @@ function draw_story_form(){
         <br>
         <div class="themes">
 
+        
+        <input type="text" id="inputThemes" list = "themesOptions">
+        <datalist id="themesOptions">
         <?php
+
 
         $themes = getThemes();
         foreach($themes as $k){
 
         ?>
-        
-        <input type="checkbox" name="themes[]"  value="<?= $k['theme'] ?>"> <?= $k['theme'] ?> <br>
+        <option name="themes[]"  value="<?= $k['theme'] ?>"> <?= $k['theme'] ?>
         
     <?php }
     unset($k);
     ?>
+    </datalist>
     </div>
-    <label for="otherTheme">Other: </label>
-        <input type="text" name="themes[]" placeholder="Other"><br><br>
-        <button type="submit" class="PublishSubmit"> Publish</button>
     </div>
     </form>
     

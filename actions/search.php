@@ -7,7 +7,7 @@ include_once('../database/db_comments.php');
 if(!isset($_SESSION['username']))
 die(header('Location: ../pages/login.php'));
 
-$pattern = $_GET['text'];
+$pattern = htmlspecialchars($_GET['text']);
 $info = $_GET['about'];
 
 switch($info){

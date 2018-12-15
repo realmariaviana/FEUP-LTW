@@ -58,8 +58,8 @@ function writeComments(comments, id) {
         container.appendChild(votes(element));
         container.appendChild(date);
         divComments.appendChild(container);
+        
     });
-
     let article = document.getElementById(id);
     article.appendChild(divComments);
 
