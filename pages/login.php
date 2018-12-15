@@ -8,42 +8,51 @@ include_once('../includes/session.php');
 
 draw_header(null);
 ?>
-  <link rel="stylesheet" href="../css/login.css">
 
-<form method="post" action="../actions/user_login.php">
-    <div class="container">
-        <div class="title">
-            <div class="title-image" style="background-image: url(images/feup.png);">
-                <span class="login-title">
-                    Log In
-                </span>
-        </div>
-        <div class="in">
-            <div class="username-block" data-validate="Username is required">
-                <span class="label">Username</span>
-                <input class="input" type="text" name="username" placeholder="Enter username">
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../css/login.css">
+    </head>
+
+    <body>
+    <form method="post" action="../actions/user_login.php">
+    <div class="boxed">
+        <div class="container">
+            <div class="title">
+                    <span class="login-title">
+                        welcome
+                    </span>
             </div>
 
-            <div class="password-block" data-validate = "Password is required">
-                <span class="label">Password</span>
-                <input class="input" type="password" name="password" placeholder="Enter password">
-                
-            </div>
-        </div>
-            <div>
-                <a href="#" class="txt1">
-                    Forgot Password?
-                </a>
-            </div>
+            <div class="in">
+                <div class="username-block" data-validate="Username is required">
+                    <span class="label">Username</span>
+                    <input class="input" type="text" name="username" placeholder="username">
+                </div>
 
-            <button type="submit" class="loginbtn">Log in</button>
-       
-            <div class="container signup">
-          <p>Not registered? <a href="register.php">Sign up</a>.</p>
-        </div>
+                <div class="password-block" data-validate = "Password is required">
+                    <span class="label">Password</span>
+                    <input class="input" type="password" name="password" placeholder="password">
+                </div>
+            </div>
+            
+           
+                <button type="submit" class="loginbtn">Log in</button>
+                <div>
+                    <a href="#" class="txt1">
+                        Forgot Password?
+                    </a>
+                </div>
+           
+                <div class="containersignup">
+                    <br><br><br><br><br><br><br>
+                    <p>Not registered?<a href="register.php">Sign up</a></p>
+                </div>
         </div>
     </div>
-</form>
+    </form>
+    </body>
 
 
 <?php 
