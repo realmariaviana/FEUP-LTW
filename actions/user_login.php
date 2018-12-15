@@ -8,7 +8,7 @@ $password = $_POST['password'];
 if (checkUserPassword($username, $password)) {
     $_SESSION['username'] = $username;
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Loggin success');
-    header('Location: ../pages/stories.php');
+    header('Location: ../pages/stories.php?search=all&sub=null');
 } else{
     $_SESSION['messages'][] = array('type' => 'error' , 'content' => 'Loggin failed');
     header('Location: ../pages/login.php');

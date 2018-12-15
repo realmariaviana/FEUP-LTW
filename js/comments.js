@@ -31,7 +31,6 @@ function openComments(event) {
 
 }
 
-//DOM -> Injection of HTML
 function writeComments(comments, id) {
 
     let divComments = document.createElement("div");

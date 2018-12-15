@@ -11,7 +11,7 @@
     $username =htmlspecialchars($_SESSION['username']);
     $title = htmlspecialchars($_POST['title']);
     $body =htmlspecialchars($_POST['bodyForm']);
-    $themes = htmlspecialchars($_POST['themes']);
+    $themes = $_POST['themes'];
 
     $hour = gmdate('Y-m-d H:i:s');
 
@@ -27,14 +27,14 @@
         
             try{ 
                 if($themes[$i] != "")
-                insertTheme(strtolower($themes[$i]));
+                insertTheme(htmlspecialchars(strtolower($themes[$i])));
             } catch(Exception $e){
                 $bool = false;
-                insertEntityTheme($id['id'],strtolower($themes[$i]));
+                insertEntityTheme($id['id'],htmlspecialchars(strtolower($themes[$i])));
             }
 
             if($bool)
-                insertEntityTheme($id['id'],strtolower($themes[$i]));
+                insertEntityTheme($id['id'],htmlspecialchars(strtolower($themes[$i])));
            
             $bool = true;
     }

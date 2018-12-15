@@ -7,9 +7,9 @@ include_once('../database/db_comments.php');
  if (!isset($_SESSION['username']))
     die(header('Location: ../pages/login.php'));
 
-$profileInfo = getUsernameInfo($_SESSION['username']);
-$mystories = myStories($_SESSION['username']);
-$myCommentStories =  myComments($_SESSION['username']);
+$profileInfo = getUsernameInfo($_GET['username']);
+$mystories = myStories($_GET['username']);
+$myCommentStories =  myComments($_GET['username']);
 
 draw_header($_SESSION['username']);
 ?>
@@ -54,7 +54,7 @@ draw_header($_SESSION['username']);
    </ul>
     </p>
     
-    <p class="profileinfo" id = myCommentedStories>
+    <p class="profileinfo" id ="myCommentedStories">
     <label for="myCommentedStories"> Stories i follow </label>
      <ul>
      <?php 

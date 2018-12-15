@@ -229,8 +229,23 @@
 
   function getStoriesWiththeme($theme){
     $db = Database::instance()->db();
-    $stmt = $db->prepare('SELECT entity_id FROM entityThemes WHERE theme = ?');
+    $stmt = $db->prepare('SELECT stories.* FROM entityThemes, stories WHERE theme = ? 
+    AND entityThemes.entity_id = stories.entity_id');
     $stmt->execute(array($theme));
+    return $stmt->fetchAll();
+  }
+
+  function getStoriesWithUsername($username){
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT * FROM stories WHERE username = ?');
+    $stmt->execute(array($username));
+    return $stmt->fetchAll();
+  }
+
+  function getStoriesWithTitle($title){
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT * FROM stories WHERE title = ?');
+    $stmt->execute(array($title));
     return $stmt->fetchAll();
   }
 

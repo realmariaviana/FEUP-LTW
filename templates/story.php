@@ -8,6 +8,7 @@ include_once('../database/db_comments.php');
 function draw_story_form(){
 
   ?>
+    <script src="../js/addThemes.js" defer>></script>
     <form method="post" action="../actions/add_story.php" id="storyForm">
         
         <div class="newStory">
@@ -19,11 +20,13 @@ function draw_story_form(){
         <br>
         <textarea name="bodyForm" id="bodyForm" cols="100" rows="30" form="storyForm" placeholder="I will tell you a big story..." required></textarea>
         <br>
-        <div class="themes">
+        <div class="themesDivision">
+        <label for="themes">Themes: </label>
+        <input type="text" id="inputThemes" list = "themesOptions" placeholder="story themes">
+        <img id="addTheme" src="https://image.flaticon.com/icons/svg/59/59565.svg" alt="addTheme" width="10" height="10">
 
-        
-        <input type="text" id="inputThemes" list = "themesOptions">
         <datalist id="themesOptions">
+        
         <?php
 
 
@@ -31,13 +34,14 @@ function draw_story_form(){
         foreach($themes as $k){
 
         ?>
-        <option name="themes[]"  value="<?= $k['theme'] ?>"> <?= $k['theme'] ?>
+        <option id="<?= $k['theme'] ?>"  value="<?= $k['theme'] ?>"> <?= $k['theme'] ?>
         
     <?php }
     unset($k);
     ?>
-    </datalist>
+    </datalist> <br>
     </div>
+    <button id="Add "> Add </button>
     </div>
     </form>
     
@@ -50,8 +54,24 @@ function draw_story_form(){
  * Draw stories 
  */
 
-function drawStories(){
-    $stories = getAllStories();
+function drawStories($key, $aux){
+    switch($key){
+        case "all":
+        $stories = getAllStories();
+        break;
+        
+        case "Themes":
+        $stories = getStoriesWiththeme($aux);
+        break;
+        
+        case "Users":
+        $stories = getStoriesWithUsername($aux);
+        break;
+        
+        case "Stories":
+        $stories = getStoriesWithTitle($aux);
+        break;
+    }
 ?>
 
 <script src="../js/votes.js" defer></script>
@@ -67,10 +87,10 @@ function drawStories(){
  function drawStory($story){
      ?>
      <article id="<?= $story['entity_id']?>" class="story">
-         <h1> <?= $story['title']?> </h1>
+         <h1> <a href="../pages/stories.php?search=Stories&sub="> <?= $story['title']?> </a> </h1>
          <div>
         <img class="avatar" src="images/0.jpg" alt="" />
-        <span> <?= $story['username']?></span>
+        <span><a href="../pages/profilePage.php?username=<?= $story['username']?>"> <?= $story['username']?> </a></span>
         </div>
         <p> <?=$story['body']?></p>
         <footer class="storyFooter"><?= $story['hour']?> 
@@ -80,7 +100,7 @@ function drawStories(){
         $themes = getStoryThemes($story['entity_id']);
         foreach($themes as $theme) { 
             foreach($theme as $value) ?>
-            <p id ="<?=$value?>" class="tag" ><a href="../pages/themePage.php?id=<?=$value?>"><?= "#" . $value?></a></p>
+            <p id ="<?=$value?>" class="tag" ><a href="../pages/stories.php?search=Themes&sub=<?=$value?>"><?= "#" . $value?></a></p>
         <?php }
         unset($value);
         unset($theme);

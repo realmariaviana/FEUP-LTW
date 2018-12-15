@@ -28,8 +28,8 @@
            <nav>
            <div class="header">
 
-            <a href="../pages/stories.php" class="logo">SociStory</a>
-           <div id="searchArea">
+            <a href="../pages/stories.php?search=all&sub=null" class="logo">SociStory</a>
+            <div id="searchArea">
             <form id="searchForm" method="get">
             <select name="searchthemes" id="searchBox">
             <option value="Themes">Themes</option>
@@ -42,11 +42,11 @@
             <div id="suggestions"></div>
             </div>
                 <div class="topnav">
-            <a href="../pages/profilePage.php"> <?=$username?></a>
+            <a href="../pages/profilePage.php?username=<?=$username?>"> <?=$username?></a>
             <a href="../pages/newStory.php"> + Story </a>
             <a href="../actions/user_logout.php">Logout</a>
-            <a href="../pages/stories.php">Home</a>  
-            </div>
+            <a href="../pages/stories.php?search=all&sub=null">Home</a>  
+                </div>
             </div>
 
 

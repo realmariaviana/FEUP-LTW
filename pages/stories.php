@@ -11,6 +11,9 @@ if(!isset($_SESSION['username']))
 
 <?php 
 draw_header($_SESSION['username']);
+$sub = $_GET['sub'];
+$key = $_GET['search'];
+
 ?>
 
 <div class="row">
@@ -22,7 +25,7 @@ draw_header($_SESSION['username']);
       </div>
       <div class="main">
       <?php
-drawStories();
+drawStories($key,$sub);
 draw_footer();
 ?>
    </div>
