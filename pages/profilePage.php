@@ -25,7 +25,7 @@ if($user == $_SESSION['username']){
 
     <div class="sidebar">
         <a href="profilePage.php" title="Profile">
-            <img src="images/0.jpg" alt="User name" class="img-user">
+            <img src="../database/images/0.jpg" alt="User name" class="img-user">
         </a>
         <h2 class="text"><a href="profilePage.php" title="Profile"></a>
         <i><?=$_SESSION['username']?></i>

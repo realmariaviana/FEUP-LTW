@@ -157,6 +157,17 @@ function editProfile($username, $birth, $pass, $email, $rowid) {
   }
 
 
+/**
+   * Deletes a comment
+   */
+  function getImg($username) {
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT img from users WHERE username = ?');
+    $stmt->execute(array($username));
+    return $stmt->fetch();
+  }
+
+
   /**
    * Returns all stories from the database.
    */

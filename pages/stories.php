@@ -13,14 +13,14 @@ if(!isset($_SESSION['username']))
 draw_header($_SESSION['username']);
 $sub = $_GET['sub'];
 $key = $_GET['search'];
-
+$img = getImg($_SESSION['username']);
 ?>
 
 <div class="row">
   <div class="side">
   <h2>About Me</h2>
       <h5>Photo of me:</h5>
-      <img src="images/0.jpg" alt="Avatar" class="avatar">
+      <img src=<?=$img['img']?> alt="Avatar" class="avatar">
       <p>Some text..</p>
       </div>
       <div class="main">

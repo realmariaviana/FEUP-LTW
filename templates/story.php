@@ -85,11 +85,13 @@ function drawStories($key, $aux){
 
 
  function drawStory($story){
+     $img = getImg($story['username']);
+  
      ?>
      <article id="<?= $story['entity_id']?>" class="story">
          <h1> <a href="../pages/stories.php?search=Stories&sub="> <?= $story['title']?> </a> </h1>
          <div>
-        <img class="avatar" src="images/0.jpg" alt="" />
+        <img class="avatar" src=<?=$img['img']?> alt="imgPerfil" />
         <span><a href="../pages/profilePage.php?username=<?= $story['username']?>"> <?= $story['username']?> </a></span>
         </div>
         <p> <?=$story['body']?></p>
