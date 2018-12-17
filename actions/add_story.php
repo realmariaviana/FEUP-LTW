@@ -45,7 +45,7 @@
         $_SESSION['messages'][] = array('type' => 'failled', 'content' => 'Story not published');
 
     }finally{
-     header('Location: ../pages/stories.php');
+     header('Location: ../pages/stories.php?search=all&sub=null');
 
     }
     

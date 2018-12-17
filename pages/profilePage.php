@@ -36,6 +36,12 @@ if($user == $_SESSION['username']){
     </div>--->
 
     <section id="profile">
+    
+    <p class="profileinfo" id = img>
+     <label for="img"></label>
+     <span><img src="<?=$profileInfo['img']?>" alt="MyImg" > </span>
+     </p> 
+
      <p class="profileinfo" id = username>
      <label for="name">Nome: </label>
      <span> <?=$profileInfo['username']?></span>
