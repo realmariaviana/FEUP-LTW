@@ -5,17 +5,24 @@
    * Verifies if a certain username, password combination
    * exists in the database. Use the sha1 hashing function.
    */
-  function checkUserPassword($username, $password) {
+  function verifyUser($username, $password) {
     $db = Database::instance()->db();
-    $stmt = $db->prepare('SELECT * FROM users WHERE username = ? AND password = ?');
-    $stmt->execute(array($username, sha1($password)));
-    return $stmt->fetch()?true:false; // return true if a line exists
-  }
+   
+    $stmt = $db->prepare('SELECT * FROM users WHERE username = ?');
+    $stmt->execute(array($username));
+    $user = $stmt->fetch(); 
+    return ($user !== false && password_verify($password, $user['password']));
+   }
 
   function insertUser($username,$email, $password, $birth, $img) {
     $db = Database::instance()->db();
     $stmt = $db->prepare('INSERT INTO users VALUES(?, ? ,?,?, ?)');
-    $stmt->execute(array($username, $email, sha1($password), $birth, $img));
+    $stmt->execute(array($username, $email, createPass($password), $birth, $img));
     
+  }
+
+  function createPass($password){
+    $options = ['cost' => 12];
+    return password_hash($password, PASSWORD_DEFAULT, $options);
   }
 ?>

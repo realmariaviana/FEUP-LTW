@@ -20,9 +20,10 @@ if ( !preg_match ("/^[a-zA-Z0-9]+$/", $username)) {
 }
 
 try {
-
-    $target_file=upload($username);
-
+    if($_FILES['photo']['name']!="")
+        $target_file = upload($username);
+    else
+        $target_file = "../database/images/0.jpg";
 
     insertUser($username, $email, $password, $birth, $target_file);
     $_SESSION['username'] = $username;

@@ -15,7 +15,7 @@ function draw_story_form(){
         
         <label for="title"><b>Title</b></label> <br>
         <input type="text" name="title" placeholder="Title of the story" required><br>
-        
+     <!--    <input type= -->
         <label for="text">Body Text</label>
         <br>
         <textarea name="bodyForm" id="bodyForm" cols="100" rows="30" form="storyForm" placeholder="I will tell you a big story..." required></textarea>

@@ -3,9 +3,16 @@
 include_once('../templates/common.php');
 include_once('../includes/session.php');
 include_once('../database/db_comments.php');
+include_once('../database/db_user.php');
+
 include_once('../actions/upload.php');
 
  // Verify if user is logged in 
+
+    if ($_SESSION['csrf'] !== $_POST['csrf']){
+        print_r("this is suspicious");
+        return;
+    }
  if (!isset($_SESSION['username']) || !isset($_POST['name']))
     die(header('Location: ../pages/stories.php?search=all&sub=null'));
 
@@ -22,12 +29,12 @@ try {
  if($_FILES['photo']['name'] != "")
    $img = upload($username);
 
-    if(sha1($oldpass) != $info['password']  && $oldpass != ""){
+    if(verifyUser($info['username'], $oldpass) && $oldpass != ""){
         throw new Exception("pass's dont match");
     }
     else if($newpass != ""){
         //check para a new pass
-         $pass = sha1($newpass);
+         $pass = createPass($newpass);
     }
     else
     $pass = $info['password'];

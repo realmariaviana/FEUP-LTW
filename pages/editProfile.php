@@ -20,7 +20,7 @@ include_once('../database/db_comments.php');
 
     <label for="email">Email: </label>   
     <input name="email" type="text" value="<?=$info['email']?>"> <br>
- 
+    <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
     <label for="birth">Data de Nascimento: </label>    
     <input name="birthday" type="date" value="<?=$info['birthday']?>"><br>
 
