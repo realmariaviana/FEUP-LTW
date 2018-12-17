@@ -52,7 +52,7 @@ if($user == $_SESSION['username']){
     </p>
     <p class="profileinfo" id = bd>
     <label for="birth">Data de Nascimento: </label>
-     <span> <?=$profileInfo['birthday'] ?? 'No day inserted'?></span>
+     <span> <?=$profileInfo['birthday'] ? $profileInfo['birthday'] :'No day inserted'?></span>
     </p>
 
     <p class="profileinfo" id = myStories>

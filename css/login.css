@@ -23,7 +23,7 @@
 }
 
 body{
-  background-image: url("../pages/images/fundo.jpg");
+  background-image: url("../database/images/fundo.jpg");
 }
 
 button:hover {
