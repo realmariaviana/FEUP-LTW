@@ -3,6 +3,7 @@
 include_once('../templates/common.php');
 include_once('../includes/session.php');
 include_once('../database/db_comments.php');
+include_once('../actions/upload.php');
 
  // Verify if user is logged in 
  if (!isset($_SESSION['username']) || !isset($_POST['name']))
@@ -14,9 +15,12 @@ $email = $_POST['email'];
 $birth = $_POST['birthday'];
 $oldpass = $_POST['oldpass'];
 $newpass = $_POST['newpass'];
-
+$img = $info['img'];
 
 try {
+
+ if($_FILES['photo']['name'] != "")
+   $img = upload($username);
 
     if(sha1($oldpass) != $info['password']  && $oldpass != ""){
         throw new Exception("pass's dont match");
@@ -28,7 +32,7 @@ try {
     else
     $pass = $info['password'];
 
-    editProfile($username, $birth, $pass, $email, $info['rowid']);
+    editProfile($username, $birth, $pass, $email, $img ,$info['rowid']);
     $_SESSION['username'] = $username;
     header("Location: ../pages/profilePage.php?username=" . $username);
 

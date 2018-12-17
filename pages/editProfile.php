@@ -14,7 +14,7 @@ include_once('../database/db_comments.php');
 
     ?>
 
-    <form action="../actions/editProfile.php" method="post">
+    <form action="../actions/editProfile.php" method="post" enctype="multipart/form-data">
     <label for="name">Nome: </label>    
     <input name="name" type="text" value="<?=$info['username']?>"> <br>
 
@@ -23,6 +23,10 @@ include_once('../database/db_comments.php');
  
     <label for="birth">Data de Nascimento: </label>    
     <input name="birthday" type="date" value="<?=$info['birthday']?>"><br>
+
+
+    <label for="photo">Photo: </label>    
+    <input name="photo" type="file" value="<?=$info['img']?>"><br>
 
     <label for="old"> Old Password: </label>    
     <input name="oldpass" type="password"> <br>
