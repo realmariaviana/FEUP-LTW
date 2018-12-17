@@ -12,10 +12,10 @@
     return $stmt->fetch()?true:false; // return true if a line exists
   }
 
-  function insertUser($username,$email, $password) {
+  function insertUser($username,$email, $password, $birth, $img) {
     $db = Database::instance()->db();
-    $stmt = $db->prepare('INSERT INTO users VALUES(?, ? ,?)');
-    $stmt->execute(array($username, $email, sha1($password)));
+    $stmt = $db->prepare('INSERT INTO users VALUES(?, ? ,?,?, ?)');
+    $stmt->execute(array($username, $email, sha1($password), $birth, $img));
     
   }
 ?>

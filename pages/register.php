@@ -10,7 +10,7 @@ draw_header(null);
 
   <link rel="stylesheet" href="../css/register.css">
 
-<form method="post" action="../actions/user_register.php">
+<form method="post" action="../actions/user_register.php"  enctype="multipart/form-data">
 <div class="container">
         <div class="title">
             <div class="title-image" style="background-image: url(images/feup.png);">
@@ -25,16 +25,26 @@ draw_header(null);
     <label for="email"><b>Email</b></label>
     <input type="text" placeholder="Enter Email" name="email" required>
 
+    <label for="birth"><b>Birth</b></label>
+    <input type="date" name="birth" > <br>
+
+    <label for="image"><b>Photo</b></label>
+    <input type="file" name="photo" ><br>
+    
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="psw" required>
 
     <label for="psw-repeat"><b>Repeat Password</b></label>
     <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
     
-    <label>
+
+    
+    <!-- <label>
       <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
     </label>
-    <button type="submit" class="registerbtn">Register</button>
+     -->
+     
+     <button type="submit" class="registerbtn" name="submit">Register</button>
   
   <div class="container signin">
     <p>Already have an account? <a href="login.php">Sign in</a>.</p>

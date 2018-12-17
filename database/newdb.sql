@@ -15,7 +15,8 @@ CREATE TABLE users(
   username VARCHAR PRIMARY KEY,
   email VARCHAR UNIQUE,
   password VARCHAR NOT NULL,
-  birthday DATE
+  birthday DATE,
+  img VARCHAR
 );
 
 CREATE TABLE stories(
@@ -84,9 +85,9 @@ CREATE TRIGGER IF NOT EXISTS updateNameComments AFTER UPDATE ON users
     
 INSERT INTO entities VALUES(1);
 INSERT INTO entities VALUES(2);
-INSERT INTO users Values("sheila1", "rosa@gmail.com", "c7021fedf66cbda549838f07647e3489ce85990e", null);
-INSERT INTO users Values("sheila2", "pota@pota.com", "64fe28c207ce4605548a45b0230f71d97b45957b", null);
-INSERT INTO users Values("Gansini", "carlosdcfgomes@hotmail.com","976358f0e93dec372cfae1d679ad9e48cfcc8845", null);
+INSERT INTO users Values("sheila1", "rosa@gmail.com", "c7021fedf66cbda549838f07647e3489ce85990e", null,null);
+INSERT INTO users Values("sheila2", "pota@pota.com", "64fe28c207ce4605548a45b0230f71d97b45957b", null,null);
+INSERT INTO users Values("Gansini", "carlosdcfgomes@hotmail.com","976358f0e93dec372cfae1d679ad9e48cfcc8845",null, null);
 INSERT INTO stories VALUES(1, "Gansini", "Gansini gostoso?", "Ganda gostoso esse gajo", datetime('now'));
 INSERT INTO comments VALUES(2, 1 , "sheila1", "eu sei que é", datetime('now'));
 INSERT INTO themes VALUES("sexualmenteatraente");
