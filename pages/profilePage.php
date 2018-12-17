@@ -7,11 +7,19 @@ include_once('../database/db_comments.php');
  if (!isset($_SESSION['username']))
     die(header('Location: ../pages/login.php'));
 
+$user =  $_GET['username'];
 $profileInfo = getUsernameInfo($_GET['username']);
 $mystories = myStories($_GET['username']);
 $myCommentStories =  myComments($_GET['username']);
 
 draw_header($_SESSION['username']);
+if($user == $_SESSION['username']){
+    ?>
+
+    <script  src="../js/editButton.js" defer></script>
+
+    <?php
+}
 ?>
  <!-- <link rel="stylesheet" href="../css/profilePage.css">
 

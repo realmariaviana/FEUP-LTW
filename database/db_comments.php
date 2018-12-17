@@ -17,6 +17,30 @@
 
 
   /**
+ * Edit profile
+ */
+function editProfile($username, $birth, $pass, $email, $rowid) {
+  $db = Database::instance()->db();
+  $stmt = $db->prepare('UPDATE users Set
+  username = ?,
+  email = ?,
+  password = ?,
+  birthday = ?
+  WHERE rowid = ?');
+  $stmt->execute(array($username, $email, $pass, $birth, $rowid));
+}
+
+
+  /**
+   * update a story
+   */
+  function editStory($id,$username, $title, $body, $hour) {
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('UPDATE stories Where VALUES(?, ?, ?, ?, ?)');
+    $stmt->execute(array(intval($id), $username, $title, $body, $hour));
+  }
+
+  /**
    * Inserts a new story into the database.
    */
   function insertStory($username, $title, $body, $hour) {
@@ -26,6 +50,9 @@
     $stmt->execute(array(intval($id), $username, $title, $body, $hour));
   }
 
+  /**
+   * return the storie id
+   */
   function getStoryId($username, $title, $body, $hour){
     $db = Database::instance()->db();
     $stmt = $db->prepare('SELECT entity_id as id FROM stories WHERE username = ? AND title = ? AND body = ? AND hour = ?');
@@ -49,7 +76,7 @@
     */
     function getUsernameInfo($username){
     $db = Database::instance()->db();
-    $stmt = $db->prepare('SELECT * FROM users where username = ?');
+    $stmt = $db->prepare('SELECT *, rowid FROM users where username = ?');
     $stmt->execute(array($username));
     return $stmt->fetch();
     }

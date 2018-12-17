@@ -70,7 +70,18 @@ End;
   BEGIN  Delete from likes where likes.username = New.username AND likes.entity_id = NEW.entity_id;
 End;
 
+CREATE TRIGGER IF NOT EXISTS updateNameStories AFTER UPDATE ON users
+    WHEN(new.username != old.username)
+    Begin UPDATE stories SET username = New.username
+     WHERE stories.username = old.username;
+    END;
 
+CREATE TRIGGER IF NOT EXISTS updateNameComments AFTER UPDATE ON users
+    WHEN(new.username != old.username)
+    Begin UPDATE comments SET username = New.username
+     WHERE comments.username = old.username;
+    END;
+    
 INSERT INTO entities VALUES(1);
 INSERT INTO entities VALUES(2);
 INSERT INTO users Values("sheila1", "rosa@gmail.com", "c7021fedf66cbda549838f07647e3489ce85990e", null);
