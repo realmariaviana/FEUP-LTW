@@ -7,10 +7,6 @@ drop TABLE if exists entities;
 drop TABLE if exists entityThemes;
 drop TABLE if exists themes;
 
-
-/**
-*tables
-*/
 CREATE TABLE entities (
     entity_id INTEGER PRIMARY KEY
 );
@@ -66,9 +62,6 @@ CREATE TABLE themes(
 );
 
 
-/**
-*triggers
-*/
 CREATE TRIGGER likesTodislike AFTER INSERT ON likes
   When ((Select entity_id from dislikes Where dislikes.username = New.username AND dislikes.entity_id = NEW.entity_id) NOT NULL) 
   BEGIN  Delete from dislikes where dislikes.username = New.username AND dislikes.entity_id = NEW.entity_id;
@@ -90,4 +83,13 @@ CREATE TRIGGER IF NOT EXISTS updateNameComments AFTER UPDATE ON users
     Begin UPDATE comments SET username = New.username
      WHERE comments.username = old.username;
     END;
-  
+    
+INSERT INTO entities VALUES(1);
+INSERT INTO entities VALUES(2);
+INSERT INTO users Values("sheila1", "rosa@gmail.com", "c7021fedf66cbda549838f07647e3489ce85990e", "9c49395000c9c86b88f3" ,null,"../database/images/0.jpg");
+INSERT INTO users Values("sheila2", "pota@pota.com", "64fe28c207ce4605548a45b0230f71d97b45957b", "d99fd8c471bc0ae1cae4" ,null,"../database/images/0.jpg");
+INSERT INTO users Values("Gansini", "carlosdcfgomes@hotmail.com","976358f0e93dec372cfae1d679ad9e48cfcc8845", "419f6b7762e9e104d5d1",null, "../database/images/0.jpg");
+INSERT INTO stories VALUES(1, "Gansini", "Gansini gostoso?", "Ganda gostoso esse gajo", datetime('now'));
+INSERT INTO comments VALUES(2, 1 , "sheila1", "eu sei que é", datetime('now'));
+INSERT INTO themes VALUES("sexualmenteatraente");
+INSERT INTO entityThemes VALUES(1, "sexualmenteatraente");

@@ -45,10 +45,9 @@ try {
     header("Location: ../pages/profilePage.php?username=" . $username);
 
 } catch (Exception $th) {
-    //die($th->getMessage());
     $_SESSION['messages'][] =array( 'type' => 'fail', 'content' => 'Fail editing profile');
-    
-    header("Location: ../pages/editProfile.php");
+
+   header("Location: ../pages/editProfile.php");
 }
 
 
