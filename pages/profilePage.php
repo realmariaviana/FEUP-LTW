@@ -34,65 +34,70 @@ if($user == $_SESSION['username']){
             
         </p>
     </div>--->
-
-    <section id="profile">
-        <div class="container-box">
-            <div class="banner_inner d-flex align-items-center">
-                <div class="banner_content">
-                    <div class="media">
-                        <div class="d-flex">
-                            <span><img src="<?=$profileInfo['img']?>" alt="MyImg" > </span>
-                        </div>
-                        <div class="media-body">
-                        <div class="personal_text">
-                            <h6>Hello Everybody, I am</h6>
-                            <h3><span> ines</span></h3>
-                            <p>
-                                <h6 class="title">I am from Régua and currently a student at Feup</h6>
-                            </p>
-                        </div>
-                            <ul class="list basic-info">
-                                <li class="email">
-                                
-                                    <label for="email">Email: </label>
-                                    <span> <?=$profileInfo['email']?></span>
-                                </li>
-                                <li class="birthday">
-                                    <label for="birth">Data de Nascimento: </label>
-                                    <span> <?=$profileInfo['birthday'] ? $profileInfo['birthday'] :'No day inserted'?></span>
-                                </li>
-                            </ul>
+    <section id="pageProfile">
+        <section id="profile">
+            <div class="container-box">
+                <div class="banner_inner d-flex align-items-center">
+                    <div class="banner_content">
+                        <div class="media">
+                            <div class="d-flex">
+                                <span><img src="<?=$profileInfo['img']?>" alt="MyImg" > </span>
+                            </div>
+                            <div class="media-body">
+                                <div class="personal_text">
+                                    <h6>Hello Everybody, I am</h6>
+                                    <h3><span> ines</span></h3>
+                                    <p>
+                                        <h6 class="title">I am from Régua and currently a student at Feup</h6>
+                                    </p>
+                                </div>
+                                <ul class="list basic-info">
+                                    <li class="email">
+                                    
+                                        <label for="email">Email: </label>
+                                        <span> <?=$profileInfo['email']?></span>
+                                    </li>
+                                    <li class="birthday">
+                                        <label for="birth">Data de Nascimento: </label>
+                                        <span> <?=$profileInfo['birthday'] ? $profileInfo['birthday'] :'No day inserted'?></span>
+                                    </li>
+                                </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <p class="profileinfo" id = myStories>
-        <label for="myStories"> My Stories </label>
-        <ul>
-        <?php 
-        foreach($mystories as $story){
-            ?>
-            <li><?=$story['title']?> </li>   
-        
-        <?php }
-        unset($story) ?>
-    </ul>
-        </p>
-        
-        <p class="profileinfo" id ="myCommentedStories">
-        <label for="myCommentedStories"> Stories i follow </label>
-        <ul>
-        <?php 
-        foreach($myCommentStories as $story){
-            ?>
-            <li><?=$story['title']?> </li>   
-        
-        <?php } 
-        unset($story) ?>
-    </ul>
-        </p>
+        </section>
+        <section id="stories">
+            <div class="container">
+                <p class="profileinfo" id = myStories>
+                <label for="myStories"> My Stories </label>
+                <ul>
+                <?php 
+                foreach($mystories as $story){
+                    ?>
+                    <li><?=$story['title']?> </li>   
+                
+                <?php }
+                unset($story) ?>
+            </ul>
+                </p>
+                
+                <p class="profileinfo" id ="myCommentedStories">
+                <label for="myCommentedStories"> Stories i follow </label>
+                <ul>
+                <?php 
+                foreach($myCommentStories as $story){
+                    ?>
+                    <li><?=$story['title']?> </li>   
+                
+                <?php } 
+                unset($story) ?>
+            </ul>
+                </p>
+                </div>
+        </section>   
     </section>
 
 
