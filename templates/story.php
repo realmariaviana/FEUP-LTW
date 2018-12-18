@@ -138,6 +138,9 @@ function drawStories($key, $aux){
                     </p>
                 </li>
                 <li>
+                <label for="date"><?=$story['hour']?></label>
+                </li>
+                <li>
                     <label class="comment" data-id="<?= $story['entity_id']?>">Comments</label>
                 </li>
             </ul>
