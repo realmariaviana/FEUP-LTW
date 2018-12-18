@@ -100,7 +100,7 @@ function drawStories($key, $aux){
         <span><a href="../pages/profilePage.php?username=<?= $story['username']?>"> <?= $story['username']?> </a></span>
         </div>
         <div class="story-descript">
-            <a href="../pages/stories.php?search=Stories&sub="> <?= $story['title']?> </a>
+            <a href="../pages/stories.php?search=Stories&sub=<?= $story['title']?>"> <?= $story['title']?> </a>
                     
             <p> <?=$story['body']?></p>
             
