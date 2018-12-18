@@ -32,7 +32,7 @@ try {
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Signed up and logged in!');
     header('Location: ../pages/stories.php?search=all&sub=null');
 } catch (Exception $e) {
-   die($e->getMessage());
+  // die($e->getMessage());
     $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to signup!');
     header('Location: ../pages/register.php');
     }
