@@ -39,11 +39,6 @@ draw_header(null);
             
            
                 <button type="submit" class="loginbtn">Log in</button>
-                <div>
-                    <a href="#" class="txt1">
-                        Forgot Password?
-                    </a>
-                </div>
            
                 <div class="containersignup">
                     <br><br><br><br><br><br><br>

@@ -271,7 +271,7 @@ h1{ margin: 0; }
   
 }
 
-input, textarea {
+#contactForm input, textarea {
   margin: .8em auto;
   font-family: inherit;
   text-transform: inherit;
