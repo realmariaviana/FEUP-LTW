@@ -27,12 +27,12 @@ draw_header(null);
             <div class="in">
                 <div class="username-block" data-validate="Username is required">
                     <span class="label">Username</span>
-                    <input class="input" type="text" name="username" placeholder="username">
+                    <input class="input" type="text" name="username" placeholder="username" required>
                 </div>
 
                 <div class="email-block" data-validate="Email is required">
                      <span class="label">Email</span>
-                     <input class="input" type="email" name="email" placeholder="email">
+                     <input class="input" type="email" name="email" placeholder="email" required>
                 </div>
 
                 <div class="birth-block" data-validate = "Birth is required">
@@ -47,15 +47,14 @@ draw_header(null);
 
                 <div class="password-block" data-validate = "Password is required">
                     <span class="label">Password</span>
-                    <input class="input" type="text" name="password" placeholder="password">
+                    <input class="input" type="password" name="password" placeholder="password" required>
                 </div>
 
                 <div class="rpassword-block" data-validate="Password is required">
                     <span class="label">Password</span>
-                    <input class="input" type="text" name="rpassword" placeholder="repeat password">
+                    <input class="input" type="password" name="rpassword" placeholder="repeat password" required>
                 </div>
             </div>
-      
                 <button type="submit" class="registerbtn">Register</button>
                 <div class="containersignup">
                     <br>

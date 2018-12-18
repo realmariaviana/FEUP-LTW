@@ -10,6 +10,7 @@ function draw_story_form(){
   ?>
     <script src="../js/addThemes.js" defer>></script>
     <form method="post" action="../actions/add_story.php" id="storyForm">
+    <input type="hidden" name="csrf" value="<?= $_SESSION['csrf']?>">
         
         <div class="newStory">
             <h3>Post Story</h3>

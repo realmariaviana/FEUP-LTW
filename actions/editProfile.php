@@ -23,6 +23,7 @@ $birth = $_POST['birthday'];
 $oldpass = $_POST['oldpass'];
 $newpass = $_POST['newpass'];
 $img = $info['img'];
+$salt = $info['salt'];
 
 try {
 
@@ -34,12 +35,12 @@ try {
     }
     else if($newpass != ""){
         //check para a new pass
-         $pass = createPass($newpass);
+         $pass = createPass($newpass . $salt);
     }
     else
     $pass = $info['password'];
 
-    editProfile($username, $birth, $pass, $email, $img ,$info['rowid']);
+    editProfile($username, $birth, $pass, $email, $img ,$info['rowid'], $salt);
     $_SESSION['username'] = $username;
     header("Location: ../pages/profilePage.php?username=" . $username);
 

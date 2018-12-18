@@ -19,16 +19,17 @@
   /**
  * Edit profile
  */
-function editProfile($username, $birth, $pass, $email, $img,$rowid) {
+function editProfile($username, $birth, $pass, $email, $img,$rowid, $salt) {
   $db = Database::instance()->db();
   $stmt = $db->prepare('UPDATE users Set
   username = ?,
   email = ?,
   password = ?,
   birthday = ?,
-  img = ?
+  img = ?,
+  salt = ?,
   WHERE rowid = ?');
-  $stmt->execute(array($username, $email, $pass, $birth, $img ,$rowid));
+  $stmt->execute(array($username, $email, $pass, $birth, $img ,$salt,$rowid));
 }
 
 

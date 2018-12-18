@@ -1,17 +1,17 @@
 <?php 
 include_once('../database/db_user.php');
 include_once('../includes/session.php');
-
 include_once('../actions/upload.php');
 
 
 
 $username = htmlspecialchars($_POST['username']);
-$passwordRepeat = $_POST['psw-repeat'];
-$password = $_POST['psw'];
+$passwordRepeat = $_POST['rpassword'];
+$password = $_POST['password'];
 $email = htmlspecialchars($_POST['email']);
 $birth = $_POST['birth'];
 
+$salt = random_bytes(10);
 
 
 if ( !preg_match ("/^[a-zA-Z0-9]+$/", $username)) {
@@ -25,7 +25,9 @@ try {
     else
         $target_file = "../database/images/0.jpg";
 
-    insertUser($username, $email, $password, $birth, $target_file);
+    $pass = $password . $salt;
+    
+    insertUser($username, $email, $pass, $birth, $target_file, $salt);
     $_SESSION['username'] = $username;
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Signed up and logged in!');
     header('Location: ../pages/stories.php?search=all&sub=null');
