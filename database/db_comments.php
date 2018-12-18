@@ -27,7 +27,7 @@ function editProfile($username, $birth, $pass, $email, $img,$rowid, $salt) {
   password = ?,
   birthday = ?,
   img = ?,
-  salt = ?,
+  salt = ?
   WHERE rowid = ?');
   $stmt->execute(array($username, $email, $pass, $birth, $img ,$salt,$rowid));
 }
