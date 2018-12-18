@@ -4,7 +4,7 @@ include_once('../includes/session.php');
 
  // Verify if user is logged in 
  if (isset($_SESSION['username']))
-    die(header('Location: ../pages/stories.php?search=all&sub=null'));
+    die(header('Location: ../pages/stories.php'));
 
 draw_header(null);
 ?>
@@ -36,12 +36,10 @@ draw_header(null);
                     <input class="input" type="password" name="password" placeholder="password">
                 </div>
             </div>
-            
-           
+
                 <button type="submit" class="loginbtn">Log in</button>
-           
                 <div class="containersignup">
-                    <br><br><br><br><br><br><br>
+                    <br>
                     <p>Not registered?<a href="register.php">Sign up</a></p>
                 </div>
         </div>
