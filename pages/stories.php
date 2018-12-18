@@ -17,12 +17,6 @@ $img = getImg($_SESSION['username']);
 ?>
 
 <div class="row">
-  <div class="side">
-  <h2>About Me</h2>
-      <h5>Photo of me:</h5>
-      <img src=<?=$img['img']?> alt="Avatar" class="avatar">
-      <p>Some text..</p>
-      </div>
       <div class="main">
       <div class="post-story">
                 <div class="user-pic">
