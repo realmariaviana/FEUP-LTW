@@ -222,7 +222,11 @@ img {
 }
 
 @import "https://fonts.googleapis.com/css?family=Raleway";
+<<<<<<< HEAD
 
+=======
+* {box-sizing: inherit;}
+>>>>>>> b12db40d16a8d890f38569da18cd5fa2a946e28e
 body {
   margin: 0;
   padding: 0;
@@ -394,9 +398,8 @@ button#sendCommentButton1 {
 }
 
 .comments-container {
-    border-bottom: 1px solid #e6ecf5;
-    background-color: #fafbfd;
-    /* position: relative; */
+    border-bottom: 1px solid #eeeeee;
+    background-color: #e1e8f1;
 }
 
 .comments-user {
