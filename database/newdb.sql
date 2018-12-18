@@ -25,6 +25,7 @@ CREATE TABLE stories(
   title TEXT NOT NULL, 
   body TEXT NOT NULL,
   hour DATETIME NOT NULL,
+  salt VARCHAR(32),
   UNIQUE(username, title, body)
 );
 

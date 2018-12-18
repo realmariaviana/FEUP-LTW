@@ -15,7 +15,7 @@ function draw_story_form(){
         
         <label for="title"><b>Title</b></label> <br>
         <input type="text" name="title" placeholder="Title of the story" required><br>
-     <!--    <input type= -->
+        <input type="hidden" name="csrf" value=<?= $_SESSION['csrf']?> >
         <label for="text">Body Text</label>
         <br>
         <textarea name="bodyForm" id="bodyForm" cols="100" rows="30" form="storyForm" placeholder="I will tell you a big story..." required></textarea>
@@ -89,7 +89,7 @@ function drawStories($key, $aux){
   
      ?>
      <article id="<?= $story['entity_id']?>" class="story">
-         <h1> <a href="../pages/stories.php?search=Stories&sub="> <?= $story['title']?> </a> </h1>
+         <h1> <a href="../pages/stories.php?search=Stories&sub=<?= $story['title']?>"> <?= $story['title']?> </a> </h1>
          <div>
         <img class="avatar" src=<?=$img['img']?> alt="imgPerfil" />
         <span><a href="../pages/profilePage.php?username=<?= $story['username']?>"> <?= $story['username']?> </a></span>

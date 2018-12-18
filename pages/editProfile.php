@@ -17,7 +17,7 @@ include_once('../database/db_comments.php');
     <form action="../actions/editProfile.php" method="post" enctype="multipart/form-data">
     <label for="name">Nome: </label>    
     <input name="name" type="text" value="<?=$info['username']?>"> <br>
-
+    <input type="hidden" name=<?=$_SESSION['csrf']?>>
     <label for="email">Email: </label>   
     <input name="email" type="text" value="<?=$info['email']?>"> <br>
     <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">

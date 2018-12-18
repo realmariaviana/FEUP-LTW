@@ -28,7 +28,7 @@ try {
     insertUser($username, $email, $password, $birth, $target_file);
     $_SESSION['username'] = $username;
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Signed up and logged in!');
-    header('Location: ../pages/stories.php');
+    header('Location: ../pages/stories.php?search=all&sub=null');
 } catch (Exception $e) {
    die($e->getMessage());
     $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to signup!');

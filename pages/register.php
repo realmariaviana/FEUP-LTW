@@ -3,7 +3,7 @@ include_once('../templates/common.php');
 include_once('../includes/session.php');
 
 if(isset($_SESSION['username']))
-  die(header('Location: ../pages/stories.php'));
+  die(header('Location: ../pages/stories.php?search=all&sub=null'));
   
 draw_header(null);
 ?>
@@ -23,7 +23,7 @@ draw_header(null);
     <input type="text" placeholder="Enter username" name="username" required>
 
     <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
+    <input type="email" placeholder="Enter Email" name="email" required>
 
     <label for="birth"><b>Birth</b></label>
     <input type="date" name="birth" > <br>
@@ -32,17 +32,10 @@ draw_header(null);
     <input type="file" name="photo" ><br>
     
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
+    <input id="password" type="password" placeholder="Enter Password" name="psw" required>
 
     <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-    
-
-    
-    <!-- <label>
-      <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-    </label>
-     -->
+    <input id="repeat-password" type="password" placeholder="Repeat Password" name="psw-repeat" required>
      
      <button type="submit" class="registerbtn" name="submit">Register</button>
   

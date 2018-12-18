@@ -5,12 +5,17 @@
 
     date_default_timezone_set('Europe/Lisbon');
 
+    if ($_SESSION['csrf'] !== $_POST['csrf']){
+        print_r("this is suspicious");
+        return;
+    }
+
     if(!isset($_SESSION['username']))
         die(header('Location: ../pages/login.php'));
 
-    $username =htmlspecialchars($_SESSION['username']);
+    $username = htmlspecialchars($_SESSION['username']);
     $title = htmlspecialchars($_POST['title']);
-    $body =htmlspecialchars($_POST['bodyForm']);
+    $body = htmlspecialchars($_POST['bodyForm']);
     $themes = $_POST['themes'];
 
     $hour = gmdate('Y-m-d H:i:s');
