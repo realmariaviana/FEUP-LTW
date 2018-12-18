@@ -40,6 +40,10 @@ article{
     width: 50px;
     height: 50px;
     border-radius: 50%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
   }
 
 .story-descript {
@@ -60,8 +64,8 @@ article{
 
 .story-descript > p {
     color: #686868;
-    font-size: 14px;
-    line-height: 10px;
+    line-height: 20px;
+    margin-top: 15px;
     margin-bottom: 15px;
 }
 
@@ -165,13 +169,6 @@ p{margin-top: 0;/* font-family: Poppins-Medium; */font-family: "Roboto", sans-se
 }
 
 /* Create two unequal columns that sits next to each other */
-/* Sidebar/left column */
-.side {
-    -ms-flex: 30%; /* IE10 */
-    flex: 10%;
-    background-color: #f1f1f1;
-    padding: 20px;
-}
 
 /* Main column */
 .main {   
@@ -189,6 +186,10 @@ p{margin-top: 0;/* font-family: Poppins-Medium; */font-family: "Roboto", sans-se
     padding: 20px;
 }
 
+img {
+    border-radius: 50%;
+  }
+  
 .like-com li .comment{
     flex: auto;
     font-family: Poppins-Bold;
@@ -221,7 +222,11 @@ p{margin-top: 0;/* font-family: Poppins-Medium; */font-family: "Roboto", sans-se
 }
 
 @import "https://fonts.googleapis.com/css?family=Raleway";
+<<<<<<< HEAD
+
+=======
 * {box-sizing: inherit;}
+>>>>>>> b12db40d16a8d890f38569da18cd5fa2a946e28e
 body {
   margin: 0;
   padding: 0;
