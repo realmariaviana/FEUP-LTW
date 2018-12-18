@@ -8,41 +8,64 @@ if(isset($_SESSION['username']))
 draw_header(null);
 ?>
 
-  <link rel="stylesheet" href="../css/register.css">
+  <!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../css/register.css">
+    </head>
 
-<form method="post" action="../actions/user_register.php"  enctype="multipart/form-data">
-<div class="container">
-        <div class="title">
-            <div class="title-image" style="background-image: url(images/feup.png);">
-                <span class="login-title">
-                    Sign Up
-                </span>
+    <body>
+    <form method="post" action="../actions/user_register.php" enctype="multipart/form-data">
+    <div class="boxed">
+        <div class="container">
+            <div class="title">
+                    <span class="signup-title">
+                        sign up
+                    </span>
+            </div>
+
+            <div class="in">
+                <div class="username-block" data-validate="Username is required">
+                    <span class="label">Username</span>
+                    <input class="input" type="text" name="username" placeholder="username">
+                </div>
+
+                <div class="email-block" data-validate="Email is required">
+                     <span class="label">Email</span>
+                     <input class="input" type="email" name="email" placeholder="email">
+                </div>
+
+                <div class="birth-block" data-validate = "Birth is required">
+                    <span class="label">Birth</span>
+                    <input class="input" type="date" name="birth" placeholder="birth">
+                </div>
+
+                <div class="pic-block" data-validate = "Pic is required">
+                    <span class="label">Picture</span>
+                    <input class="input" type="file" name="photo" placeholder="photo">
+                </div>
+
+                <div class="password-block" data-validate = "Password is required">
+                    <span class="label">Password</span>
+                    <input class="input" type="text" name="password" placeholder="password">
+                </div>
+
+                <div class="rpassword-block" data-validate="Password is required">
+                    <span class="label">Password</span>
+                    <input class="input" type="text" name="rpassword" placeholder="repeat password">
+                </div>
+            </div>
+      
+                <button type="submit" class="registerbtn">Register</button>
+                <div class="containersignup">
+                    <br>
+                    <p>Already have an account? <a href="login.php">Sign in</a></p>
+                </div>
         </div>
-    <div class="in">
-    <label for="username"><b>Username</b></label>
-    <input type="text" placeholder="Enter username" name="username" required>
-
-    <label for="email"><b>Email</b></label>
-    <input type="email" placeholder="Enter Email" name="email" required>
-
-    <label for="birth"><b>Birth</b></label>
-    <input type="date" name="birth" > <br>
-
-    <label for="image"><b>Photo</b></label>
-    <input type="file" name="photo" ><br>
+    </div>
+    </form>
     
-    <label for="psw"><b>Password</b></label>
-    <input id="password" type="password" placeholder="Enter Password" name="psw" required>
 
-    <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input id="repeat-password" type="password" placeholder="Repeat Password" name="psw-repeat" required>
-     
-     <button type="submit" class="registerbtn" name="submit">Register</button>
-  
-  <div class="container signin">
-    <p>Already have an account? <a href="login.php">Sign in</a>.</p>
-  </div>
-</form>
 <?php 
 draw_footer();
 ?>

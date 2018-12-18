@@ -36,17 +36,10 @@ draw_header(null);
                     <input class="input" type="password" name="password" placeholder="password">
                 </div>
             </div>
-            
-           
+
                 <button type="submit" class="loginbtn">Log in</button>
-                <div>
-                    <a href="#" class="txt1">
-                        Forgot Password?
-                    </a>
-                </div>
-           
                 <div class="containersignup">
-                    <br><br><br><br><br><br><br>
+                    <br>
                     <p>Not registered?<a href="register.php">Sign up</a></p>
                 </div>
         </div>

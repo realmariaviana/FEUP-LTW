@@ -43,20 +43,31 @@ function writeComments(comments, id) {
         h5.innerHTML=element.username;
        
         let p = document.createElement("p");
-         
-        p.innerHTML = element.body
+        p.innerHTML = element.body;
 
-       
+        let div = document.createElement("image");
+        div.innerHTML = element.image;
+
         let date = document.createElement("footer");
         date.innerHTML = element.hour;
 
         let container = document.createElement("div");
+       container.classList.add("comments-container");
        
-        container.appendChild(h5);
-        container.appendChild(p);
-        container.appendChild(votes(element));
-        container.appendChild(date);
+
+       let container2 = document.createElement("div");
+       container2.classList.add("comments-user");
+       
+        container2.appendChild(h5);
+        
+        container2.appendChild(date);
+
+        
+        container.appendChild(container2);
+
         divComments.appendChild(container);
+        divComments.appendChild(p);
+        container.appendChild(votes(element));
         
     });
     let article = document.getElementById(id);

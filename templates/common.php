@@ -28,27 +28,37 @@
            <nav>
            <div class="header">
 
-            <a href="../pages/stories.php?search=all&sub=null" class="logo">SociStory</a>
-            <div id="searchArea">
-            <form id="searchForm" method="get">
-            <select name="searchthemes" id="searchBox">
-            <option value="Themes">Themes</option>
-            <option value="Users">Users</option>
-            <option value="Stories">Stories</option>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+           
+           <div class="topnav" id="myTopnav">
 
-            </select>
-            <input id="search" type="text" placeholder="Search..">             
-            </form>
-            <div id="suggestions"></div>
-            </div>
-                <div class="topnav">
-            <a href="../pages/profilePage.php?username=<?=$username?>"> <?=$username?></a>
-            <a href="../pages/newStory.php"> + Story </a>
-            <a href="../actions/user_logout.php">Logout</a>
-            <a href="../pages/stories.php?search=all&sub=null">Home</a>  
-                </div>
-            </div>
+               <div class="logo">
+                   <a href="../pages/stories.php?search=all&sub=null" class="logo">SociStory</a>
+               </div>
 
+               <div class="searchArea">
+                   <form id="searchForm" method="get">
+                       <select name="searchthemes" id="searchBox">
+                           <option value="Themes">Themes</option>
+                           <option value="Users">Users</option>
+                           <option value="Stories">Stories</option>
+                       </select>
+                       <input id="search" type="text" placeholder="Search..">             
+                   </form>
+                   <div id="suggestions"></div>
+               </div>
+
+               <div class=topnav-right>
+               
+                   <a href="../pages/stories.php?search=all&sub=null">Home</a>  
+                   <a href="../pages/profilePage.php?username=<?=$username?>"> <?=$username?></a>
+                   <a href="../actions/user_logout.php">Logout</a>
+                   
+               <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                   <i class="fa fa-bars"></i>
+               </a>
+               </div>
+            </div>
 
         <?php }  ?>
         </nav>
