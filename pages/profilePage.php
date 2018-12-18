@@ -22,85 +22,90 @@ if($user == $_SESSION['username']){
 }
 ?>
  <link rel="stylesheet" href="../css/profilePage.css">
-<!--
-    <div class="sidebar">
-        <a href="profilePage.php" title="Profile">
-            <img src="../database/images/0.jpg" alt="User name" class="img-user">
-        </a>
-        <h2 class="text"><a href="profilePage.php" title="Profile"></a>
-        <i><?=$_SESSION['username']?></i>
-        </h2>
-        <p class="description">
-            
-        </p>
-    </div>--->
-    <section id="pageProfile">
-        <section id="profile">
-            <div class="container-box">
-                <div class="banner_inner d-flex align-items-center">
-                    <div class="banner_content">
-                        <div class="media">
-                            <div class="d-flex">
-                                <span><img src="<?=$profileInfo['img']?>" alt="MyImg" > </span>
-                            </div>
-                            <div class="media-body">
-                                <div class="personal_text">
-                                    <h6>Hello Everybody, I am</h6>
-                                    <h3><span> ines</span></h3>
-                                    <p>
-                                        <h6 class="title">I am from Régua and currently a student at Feup</h6>
-                                    </p>
-                                </div>
-                                <ul class="list basic-info">
-                                    <li class="email">
-                                    
-                                        <label for="email">Email: </label>
-                                        <span> <?=$profileInfo['email']?></span>
-                                    </li>
-                                    <li class="birthday">
-                                        <label for="birth">Data de Nascimento: </label>
-                                        <span> <?=$profileInfo['birthday'] ? $profileInfo['birthday'] :'No day inserted'?></span>
-                                    </li>
-                                </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="stories">
-            <div class="container">
-                <p class="profileinfo" id = myStories>
-                <label for="myStories"> My Stories </label>
-                <ul>
-                <?php 
-                foreach($mystories as $story){
-                    ?>
-                    <li><?=$story['title']?> </li>   
-                
-                <?php }
-                unset($story) ?>
-            </ul>
-                </p>
-                
-                <p class="profileinfo" id ="myCommentedStories">
-                <label for="myCommentedStories"> Stories i follow </label>
-                <ul>
-                <?php 
-                foreach($myCommentStories as $story){
-                    ?>
-                    <li><?=$story['title']?> </li>   
-                
-                <?php } 
-                unset($story) ?>
-            </ul>
-                </p>
-                </div>
-        </section>   
-    </section>
 
+<div class="container">
+    <div class="card">
+        <h1><?=$_SESSION['username']?></h1>
+            <img src="<?=$profileInfo['img']?>" alt="MyImg" style="width:100%"> 
+        <div style="margin: 24px 0;">
+            <ul class="single-category">
+                <li class="row">
+                    <h6 class="email">Email</h6>
+                    <span> <?=$profileInfo['email']?></span> </li>
+                <li class="row">
+                    <h6 class="birthday">Birthday</h6>
+                    <span> <?=$profileInfo['birthday'] ? $profileInfo['birthday'] :'No day inserted'?></span> </li>
+            </ul>
+            </div>
+        <p><button>EDIT</button></p>
+    </div>
+         
+    <section id="stories">
+        <div class="container">
+            <p class="profileinfo" id = myStories>
+               <label for="myStories"> My Stories </label>
+                <ul>
+                    <?php 
+                    foreach($mystories as $story){
+                        ?>
+                        <li><?=$story['title']?> </li>   
+                    
+                    <?php }
+                    unset($story) ?>
+                </ul>
+                    </p>
+                    
+                    <p class="profileinfo" id ="myCommentedStories">
+                    <label for="myCommentedStories"> Stories i follow </label>
+                    <ul>
+                    <?php 
+                    foreach($myCommentStories as $story){
+                        ?>
+                        <li><?=$story['title']?> </li>   
+                    
+                    <?php } 
+                    unset($story) ?>
+                </ul>
+                    </p>
+                    </div>
+                    </div> 
+            </section>   
+
+        </section>
+    </div>
 
 <?php 
 draw_footer();
 ?>
+
+<!--    
+<div id="main-wrapper"> 
+<div class="compny-profile"> 
+      <div class="profile-company-content has-bg-image" data-bg-color="f5f5f5" style="background-image: url(&quot;undefined&quot;); background-color: rgb(245, 245, 245);">
+            <div class="container">
+                <div class="row"> 
+                
+           /*     <div class="col-md-4"> 
+                    <div class="sidebar">
+                    <h5 class="main-title">Mike Tomlinson</h5>
+                    <div class="sidebar-thumbnail"> <img src="images/avatar.jpg" alt=""> </div>
+                    <div class="sidebar-information">
+                        <ul class="single-category">
+                        <li class="row">
+                            <h6 class="email">Email</h6>
+                            <span class="subtitle col-xs-6"> /*
+                                </span> </li>
+                        <li class="row">
+                            <h6 class="birthday">Birthday</h6>
+                            <span class="subtitle col-xs-6"></span> </li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+-->
