@@ -4,7 +4,7 @@ include_once('../includes/session.php');
 
  // Verify if user is logged in 
  if (isset($_SESSION['username']))
-    die(header('Location: ../pages/stories.php'));
+    die(header('Location: ../pages/stories.php?search=all&sub=null'));
 
 draw_header(null);
 ?>
