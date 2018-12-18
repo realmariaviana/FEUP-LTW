@@ -15,31 +15,51 @@ include_once('../database/db_comments.php');
     ?>
 
  <link rel="stylesheet" href="../css/profilePage.css">
-
+<script src="../js/editProfile.js" defer></script>
 <section id="profile">
     <div class="container-box">
+        
         <div class="banner_inner d-flex align-items-center">
             <form action="../actions/editProfile.php" method="post" enctype="multipart/form-data">
-            <label for="name">Nome: </label>    
-            <input name="name" type="text" value="<?=$info['username']?>"> <br>
-
-            <label for="email">Email: </label>   
-            <input name="email" type="text" value="<?=$info['email']?>"> <br>
             <input type="hidden" name="csrf" value="<?=$_SESSION['csrf']?>">
-            <label for="birth">Data de Nascimento: </label>    
+        
+        <div class="username-block">            
+            <label for="name">Username: </label>    
+            <input name="name" type="text" value="<?=$info['username']?>"> <br>
+        </div>
+  
+        <div class="email-block">        
+            <label for="email">Email: </label>   
+            <input name="email" type="email" value="<?=$info['email']?>"> <br>
+        </div>
+                
+        <div class="birth-block">
+            <label for="birth">Birthday: </label>    
             <input name="birthday" type="date" value="<?=$info['birthday']?>"><br>
 
-
-            <label for="photo">Photo: </label>    
+        </div>
+        
+        <div class="pic-block" >
+            <label for="photo">Picture: </label>    
             <input name="photo" type="file" value="<?=$info['img']?>"><br>
-
+        </div>
+        
+        <div class="oldpass-block" >
+        
             <label for="old"> Old Password: </label>    
             <input name="oldpass" type="password"> <br>
-
+        </div>
+       
+        <div class="password-block" >
             <label for="new"> New Password: </label>    
-            <input name="newpass" type="password"> <br>
+            <input id="newPassword" name="newpass" type="password"> <br>
+        </div>
 
-            <button type="submit">Save</button>
+        <div class="rpassword-block">
+            <label for="repeatnew"> Repeat New Password: </label>    
+            <input id="rpassword" name="repeatnewpass" type="password"> <br>
+        </div>
+            <button id="save"type="submit">Save</button>
             
             
             </form>

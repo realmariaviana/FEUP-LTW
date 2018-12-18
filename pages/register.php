@@ -14,7 +14,9 @@ draw_header(null);
         <link rel="stylesheet" href="../css/register.css">
     </head>
 
+
     <body>
+<script src="../js/password.js" defer></script>
     <form method="post" action="../actions/user_register.php" enctype="multipart/form-data">
     <div class="boxed">
         <div class="container">
@@ -47,12 +49,12 @@ draw_header(null);
 
                 <div class="password-block" data-validate = "Password is required">
                     <span class="label">Password</span>
-                    <input class="input" type="password" name="password" placeholder="password" required>
+                    <input id="password" class="input" type="password" name="password" placeholder="password" required>
                 </div>
 
                 <div class="rpassword-block" data-validate="Password is required">
-                    <span class="label">Password</span>
-                    <input class="input" type="password" name="rpassword" placeholder="repeat password" required>
+                    <span class="label">Repeat Password</span>
+                    <input id="rpassword" class="input" type="password" name="rpassword" placeholder="repeat password" required>
                 </div>
             </div>
                 <button type="submit" class="registerbtn">Register</button>
