@@ -32,7 +32,7 @@ draw_header(null);
 
                 <div class="email-block" data-validate="Email is required">
                      <span class="label">Email</span>
-                     <input class="input" type="text" name="email" placeholder="email">
+                     <input class="input" type="email" name="email" placeholder="email">
                 </div>
 
                 <div class="birth-block" data-validate = "Birth is required">
