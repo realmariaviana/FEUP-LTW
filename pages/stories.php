@@ -24,6 +24,12 @@ $img = getImg($_SESSION['username']);
       <p>Some text..</p>
       </div>
       <div class="main">
+      <div class="post-story">
+                <div class="user-pic">
+                    <img src=<?=$img['img']?> alt="Avatar" class="avatar">
+                </div>
+                <a href="../pages/newStory.php"> New Story </a>
+            </div>
       <?php
 drawStories($key,$sub);
 draw_footer();
