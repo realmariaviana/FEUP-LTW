@@ -136,6 +136,7 @@ function drawStories($key, $aux){
                         <img class="upvote" id="<?="up-vote-" . $story['entity_id']?>" src="https://image.flaticon.com/icons/svg/25/25297.svg" width="20" height="20" alt="upVote" >
                         <?php } ?>
                     </p>
+                    <label class="date" for="date"><?= $story['hour']?></label>
                 </li>
                 <li>
                 <label for="date"><?=$story['hour']?></label>

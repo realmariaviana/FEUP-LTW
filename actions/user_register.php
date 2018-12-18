@@ -40,9 +40,15 @@ if(!(preg_match("/^([_@$%]|[a-z])+([0-9])([0-9]|[_@$%]|[a-z])*([A-Z])([0-9]|[_@$
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Signed up and logged in!');
     header('Location: ../pages/stories.php?search=all&sub=null');
 } catch (Exception $e) {
+<<<<<<< HEAD
+   die($e->getMessage());
+    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to signup!');
+    header('Location: ../pages/register.php');
+=======
   //die($e->getMessage());
     $_SESSION['messages'][] = array('type' => 'error', 'content' => $e->getMessage());
     die(header('Location: ../pages/register.php'));
+>>>>>>> f4857a258dc0669071a4c10ac5c77150bb15e6c4
     }
 
 ?>

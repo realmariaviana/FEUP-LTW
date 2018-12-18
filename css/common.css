@@ -52,9 +52,9 @@ padding: 20px 10px;
   }
 
   form#searchForm {
-    display: flex;
+    padding-left: 20px;
+     display: flex;
     flex: center;
-    flex-direction: inherit;
     float: left;
     width: 100%;
     position: relative;
@@ -66,6 +66,7 @@ padding: 20px 10px;
     display: flex;
     position: absolute;
     right: 0;
+    padding-right: 15px;
   }
 
 /* Style the topnav links */
@@ -90,18 +91,17 @@ padding: 20px 10px;
 input#search {
     width: 100%;
     background-color: #fff;
-    height: 38px;
+    height: 30px;
     color: #b2b2b2;
-    font-size: 12px;
-    border: 0;
-    padding: 0 10px;
+    border-radius:6px;
+    padding: 0 5px;
 }
 
 select#searchBox {
-  background-color: #efefef;
-  width: 70;
-  border: 0;
-  height: 38px;
+    background-color: #efefef;
+    width: 70;
+    border: 0;
+    padding-right:5px;
 }
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 1000px) {
@@ -148,5 +148,6 @@ select#searchBox {
 .logo{    
   width: 100%;
   text-align: center;
+
 }
 }

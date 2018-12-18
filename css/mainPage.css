@@ -32,6 +32,9 @@ article{
     border-right: 1px solid #e4e4e4;
     border-bottom: 1px solid #e4e4e4;
     margin-bottom: 20px;
+    border-radius: 10px;
+    justify-content: center;
+    justify-items: center;
 
 }
 
@@ -75,7 +78,6 @@ article{
     /* flex-direction: column; */
     /* justify-content: stretch; */
     /* align-items: center; */
-    /* margin-top: 10px; */
     /* align-items: center; */
     /* width: 100%; */
 }
@@ -88,6 +90,7 @@ article{
     border-color: #e5e5e5;
     background-color: #e5e5e5;
     padding: 2px;
+    text-transform: lowercase;
     /* text-align: center; */
     text-decoration: none;
     margin-right: 6px;
@@ -103,8 +106,8 @@ article{
 .tags p a{
     color: grey;
     font-size: 14px;
-
 }
+
 .story .post-info {
     display: flex;
     list-style: none;
@@ -129,10 +132,9 @@ article{
 .story .post-footer {
     display: flex;
     justify-content: space-between;
-    /* align-items: center; */
     float: left;
     width: 100%;
-    /* padding: 15px 20px; */
+    height: 9%;
 }
 .like-com li {
     display: flex;
@@ -158,6 +160,12 @@ article{
     /* left: 40; */
 }
 
+.date{
+    font-size: 15px;
+    margin-top: 2.7%;
+    display:inline-block;
+}
+
 p{margin-top: 0;/* font-family: Poppins-Medium; */font-family: "Roboto", sans-serif;max-width: 540px;color: #777777;margin-bottom: 40px;}
 
 /* Column container */
@@ -172,11 +180,13 @@ p{margin-top: 0;/* font-family: Poppins-Medium; */font-family: "Roboto", sans-se
 
 /* Main column */
 .main {   
-    
     -ms-flex: 70%; /* IE10 */
     flex: 70%;
     background-color: #f1f1f1;
-    padding: 20px;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 20px;
+
 }
 
 /* Fake image, just for this example */
@@ -198,7 +208,7 @@ p{margin-top: 0;/* font-family: Poppins-Medium; */font-family: "Roboto", sans-se
     padding: 10px;
     font-size: 14px;
     position: absolute;
-    right: 40;
+    right: 20%;
 }
 
 .like-com img {
@@ -222,11 +232,7 @@ p{margin-top: 0;/* font-family: Poppins-Medium; */font-family: "Roboto", sans-se
 }
 
 @import "https://fonts.googleapis.com/css?family=Raleway";
-<<<<<<< HEAD
 
-=======
-* {box-sizing: inherit;}
->>>>>>> b12db40d16a8d890f38569da18cd5fa2a946e28e
 body {
   margin: 0;
   padding: 0;
@@ -395,11 +401,14 @@ div#newComment-1 {
 button#sendCommentButton1 {
     height: 80;
     margin-top: 12;
+    margin-right:3%;
 }
 
 .comments-container {
-    border-bottom: 1px solid #eeeeee;
-    background-color: #e1e8f1;
+    border-bottom: 1px solid #e6ecf5;
+    background-color: #fafbfd;
+    /* position: relative; */
+    margin-top: 40%
 }
 
 .comments-user {
@@ -410,5 +419,5 @@ button#sendCommentButton1 {
 
 .comments-user footer {
     position: absolute;
-    right: 30;
+    right: 10;
 }
