@@ -154,9 +154,7 @@ article{
     /* left: 40; */
 }
 
-p{
-font-family: Poppins-Medium;
-}
+p{margin-top: 0;/* font-family: Poppins-Medium; */font-family: "Roboto", sans-serif;max-width: 540px;color: #777777;margin-bottom: 40px;}
 
 /* Column container */
 .row {  
@@ -192,21 +190,19 @@ font-family: Poppins-Medium;
 }
 
 .like-com li .comment{
-    /* justify-content: space-around; */
     flex: auto;
-    /* display: flex; */
-    /* justify-content: flex-end; */
-    /* align-items: normal; */
     font-family: Poppins-Bold;
-    /* float: right; */
     background-color: black;
     color:white;
     padding: 10px;
-    /* position: relative; */
     font-size: 14px;
-    /* float: right; */
     position: absolute;
-    /* right: 40; */
+    right: 40;
+}
+
+.like-com img {
+    width: 50px;
+    height: 30px;
 }
 
 /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
@@ -225,14 +221,13 @@ font-family: Poppins-Medium;
 }
 
 @import "https://fonts.googleapis.com/css?family=Raleway";
-* { box-sizing: border-box; }
-body { 
-  margin: 0; 
-  padding: 0; 
-  background: #333;
-  font-family: Raleway; 
-  text-transform: uppercase; 
-  font-size: 11px; 
+* {box-sizing: inherit;}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Raleway;
+  text-transform: uppercase;
+  font-size: 11px;
 }
 h1{ margin: 0; }
 
@@ -271,7 +266,7 @@ h1{ margin: 0; }
   
 }
 
-#contactForm input, textarea {
+.newStory input, textarea {
   margin: .8em auto;
   font-family: inherit;
   text-transform: inherit;
@@ -384,4 +379,32 @@ form#storyForm {display: flex;justify-content: center;}
     font-size: medium;
     border-radius: 15px;
     text-decoration: none;
+}
+
+
+div#newComment-1 {
+    display: flex;
+    /* background-color: greenyellow; */
+}
+
+button#sendCommentButton1 {
+    height: 80;
+    margin-top: 12;
+}
+
+.comments-container {
+    border-bottom: 1px solid #e6ecf5;
+    background-color: #fafbfd;
+    /* position: relative; */
+}
+
+.comments-user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.comments-user footer {
+    position: absolute;
+    right: 30;
 }

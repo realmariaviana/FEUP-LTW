@@ -82,6 +82,7 @@ function editProfile($username, $birth, $pass, $email, $img,$rowid) {
     return $stmt->fetch();
     }
 
+    
 /**
    * Insert theme with storie associated
    */

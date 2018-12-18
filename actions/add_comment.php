@@ -23,6 +23,7 @@ foreach($comments as &$bool){
    $bool['votedown'] = voteddown($bool['entity_id'], $_SESSION['username']);
    $bool['upvotes'] = numberUpVotes($bool['entity_id'])['N'];
    $bool['downvotes'] = numberDownVotes($bool['entity_id'])['N'];
+   $bool['img'] = getUsernameInfo($bool['username'])['img'];
 }
 echo json_encode($comments);
 
