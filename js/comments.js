@@ -49,8 +49,8 @@ function writeComments(comments, id) {
         let p = document.createElement("p");
         p.innerHTML = element.body;
 
-        let div = document.createElement("image");
-        div.innerHTML = element.image;
+        let div = document.createElement("img");
+        div.src = element.img;
 
         let date = document.createElement("footer");
         date.innerHTML = element.hour;
@@ -69,6 +69,7 @@ function writeComments(comments, id) {
          
         let container4 = document.createElement("div");
         container4.classList.add("com");
+        container4.appendChild(div);
         container4.appendChild(h5);
         container4.appendChild(p);
         

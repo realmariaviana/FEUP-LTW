@@ -68,6 +68,12 @@ function writeMessages(message, elem){
     label.innerHTML = message; 
     label.id = "message";
 
-    elem.appendChild(label);
+    let divis = document.createElement('div');
+    divis.classList.add("message-warning");
+    
+    divis.appendChild(label);
+
+
+    elem.appendChild(divis);
 }
 

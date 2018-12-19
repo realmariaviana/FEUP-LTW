@@ -434,7 +434,7 @@ commentsContainer {
 }
 
 .comments-user h5 {
-    margin-left: 60px;
+    margin-left: 20px;
     font-size: small;
 }
 
@@ -447,8 +447,8 @@ commentsContainer {
 .comment-vote p#votezone {
     border-top: 5;
     position: relative;
-    top: -2;
-    margin-left: 60px;
+    top: -15;
+    margin-left: 90px;
 }
 
 .user-info {
@@ -482,4 +482,9 @@ commentsContainer {
 
 .comments-user .com p {
     margin-left: 20px;
+}
+
+.com img {
+    width: 50px;
+    margin-left: 20;
 }
