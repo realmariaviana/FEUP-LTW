@@ -35,10 +35,13 @@ article{
     border-radius: 10px;
     justify-content: center;
     justify-items: center;
+    display: flex;
+    flex-direction: column;
 
 }
 
 .avatar {
+    margin-right:3%;
     vertical-align: middle;
     width: 50px;
     height: 50px;
@@ -72,6 +75,12 @@ article{
     margin-bottom: 15px;
 }
 
+.comments-container {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #e6ecf5;
+    background-color: #f5f5f5;
+}
 .tags {
     /* float: left; */
     display: flex;
@@ -393,22 +402,14 @@ form#storyForm {display: flex;justify-content: center;}
 }
 
 
-div#newComment-1 {
+.newCommentContainer {
     display: flex;
-    /* background-color: greenyellow; */
 }
 
-button#sendCommentButton1 {
+.newCommentContainer button {
     height: 80;
     margin-top: 12;
-    margin-right:3%;
-}
-
-.comments-container {
-    border-bottom: 1px solid #e6ecf5;
-    background-color: #fafbfd;
-    /* position: relative; */
-    margin-top: 40%
+    margin-right: 3%;
 }
 
 .comments-user {
@@ -420,4 +421,54 @@ button#sendCommentButton1 {
 .comments-user footer {
     position: absolute;
     right: 10;
+    position: relative;
+    left: 440;
+}
+
+
+
+commentsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.comments-user h5 {
+    margin-left: 10px;
+    font-size: small;
+}
+
+.comment-vote {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.comment-vote p {
+    margin-left: 10px;
+}
+
+.comment-vote p#votezone {border-top: 5;position: relative;top: -2;}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.date-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    justify-items: space-between;
+}
+
+.date-name span {
+    margin-bottom: 5px;
+}
+
+.date-name a {
+    font-style: none;
+    text-decoration: none;
+    color: black;
+    font-size: initial;
 }
