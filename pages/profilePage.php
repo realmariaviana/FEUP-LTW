@@ -25,7 +25,7 @@ if($user == $_SESSION['username']){
 
 <div class="container">
     <div class="card">
-        <h1><?=$_SESSION['username']?></h1>
+        <!-- <h1><?=$_SESSION['username']?></h1> -->
             <img src="<?=$profileInfo['img']?>" alt="MyImg" style="width:100%"> 
         <div style="margin: 24px 0;">
             <ul class="single-category">
@@ -37,7 +37,6 @@ if($user == $_SESSION['username']){
                     <span> <?=$profileInfo['birthday'] ? $profileInfo['birthday'] :'No day inserted'?></span> </li>
             </ul>
             </div>
-        <p><button>EDIT</button></p>
     </div>
          
     <section id="stories">
@@ -55,7 +54,7 @@ if($user == $_SESSION['username']){
                 </ul>
                     </p>
                     
-                    <p class="profileinfo" id ="myCommentedStories">
+                    <!-- <p class="profileinfo" id ="myCommentedStories">
                     <label for="myCommentedStories"> Stories i follow </label>
                     <ul>
                     <?php 
@@ -66,7 +65,7 @@ if($user == $_SESSION['username']){
                     <?php } 
                     unset($story) ?>
                 </ul>
-                    </p>
+                    </p> -->
                     </div>
                     </div> 
             </section>   
@@ -77,35 +76,3 @@ if($user == $_SESSION['username']){
 <?php 
 draw_footer();
 ?>
-
-<!--    
-<div id="main-wrapper"> 
-<div class="compny-profile"> 
-      <div class="profile-company-content has-bg-image" data-bg-color="f5f5f5" style="background-image: url(&quot;undefined&quot;); background-color: rgb(245, 245, 245);">
-            <div class="container">
-                <div class="row"> 
-                
-           /*     <div class="col-md-4"> 
-                    <div class="sidebar">
-                    <h5 class="main-title">Mike Tomlinson</h5>
-                    <div class="sidebar-thumbnail"> <img src="images/avatar.jpg" alt=""> </div>
-                    <div class="sidebar-information">
-                        <ul class="single-category">
-                        <li class="row">
-                            <h6 class="email">Email</h6>
-                            <span class="subtitle col-xs-6"> /*
-                                </span> </li>
-                        <li class="row">
-                            <h6 class="birthday">Birthday</h6>
-                            <span class="subtitle col-xs-6"></span> </li>
-                        </ul>
-                    </div>
-                </div>
-                </div>
-                </div>
-            </div>
-        </div>
-    </div>
-  </div>
-</div>
--->

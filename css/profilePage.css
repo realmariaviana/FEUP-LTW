@@ -1,38 +1,72 @@
+@font-face {
+    font-family: Poppins-Regular;
+    src: url('../fonts/poppins/Poppins-Regular.ttf'); 
+  }
+  
+  @font-face {
+    font-family: Poppins-Medium;
+    src: url('../fonts/poppins/Poppins-Medium.ttf'); 
+  }
+  
+  @font-face {
+    font-family: Poppins-Bold;
+    src: url('../fonts/poppins/Poppins-Bold.ttf'); 
+  }
+  
+  @font-face {
+    font-family: Poppins-SemiBold;
+    src: url('../fonts/poppins/Poppins-SemiBold.ttf'); 
+  }
+
 html, body, .sidebar, .content-posts {
     height: 100%;
+    background-color:#F1F1F1;
 }
 
 body {
     line-height: 26px;
     font-size: 16px;
-    font-family: "Roboto", sans-serif;
+    font-family: Poppins-Regular;
     font-weight: normal;
+    background-color: #F1F1F1;
 }
 section#profile {
     position: relative;
     z-index: 1;
-    background-image: -moz-linear-gradient(0deg, #000000 0%, #404d4e 100%);
-    background-image: -webkit-linear-gradient(0deg, #000000 0%, #404d4e 100%);
-    background-image: -ms-linear-gradient(0deg, #000000 0%, #404d4e 100%);
     margin-bottom: 200px;
+    
     /* display: block; */
 }
 
+section#stories{
+    margin-right: 60%;
+    margin-top: 3%;
+}
+
+.profileInfo{
+    font-weight: bold;
+    font-size: 20px;
+
+}
+
 .container-box {
-    min-height: 700px;
+
+    height: 500px;
+    width: 500px;
     border-radius: 12px;
-    position: relative;
+    position: center;
     bottom: -200px;
     background: #fff;
     padding: 30px;
-    box-shadow: 0px 20px 80px 0px rgba(153, 153, 153, 0.3);
+    /* margin-left: 30%; */
+    margin-top: 5%;
 }
 
 .banner_inner.d-flex.align-items-center {
     position: relative;
     width: 100%;
-    min-height: 700px;
     align-items: center !important;
+    align-content: center;
     justify-content: space-between;
 }
 
@@ -60,16 +94,17 @@ section#profile {
     margin-left: 30;
 }
 
-.d-flex img {
+/* .d-flex */.img { 
     vertical-align: middle;
     border-style: none;
     padding: 20px;
-    border-radius: 30px;
+    border-radius: 25%;
+    height:20px;
 }
 
 .personal_text h6 {
     font-size: 24px;
-    font-family: "Roboto", sans-serif;
+    font-family: Poppins-Regular;
     text-transform: uppercase;
     letter-spacing: 2.1px;
     font-weight: normal;
@@ -85,7 +120,7 @@ section#profile {
 }
 
 .personal_text p {
-    font-family: "Roboto", sans-serif;
+    font-family: Poppins-Regular;
     max-width: 540px;
     color: #777777;
     margin-bottom: 40px;
@@ -109,7 +144,7 @@ li.birthday {
     list-style-image: url(../database/images/calend.png);
 }
 .container {
-    width: 100%;
+    width: 110%;
     padding-right: 15px;
     padding-left: 15px;
     margin-right: auto;
@@ -120,27 +155,21 @@ li.birthday {
     flex-wrap: wrap;
     margin-right: -15px;
     margin-left: -15px;
+    background-color: #F1F1F1;
 }
 
 section#stories {
     padding: 20;
     display: flex;
-
+    width: 50%;
 }
 
 p#myStories {
-    font-size: -webkit-xxx-large;
-}
-
-p#myCommentedStories {
-    font-size: x-large;
-    font-size: -webkit-xxx-large;
-
+    /* font-size: -webkit-xxx-large; */
 }
 #pageProfile #stories .container ul {
     font-size: larger;
 }
-
 
 form {
     width: 100%;
@@ -151,7 +180,7 @@ form {
     justify-content: space-between;
 }
 p#input {
-    width: 90%;
+    width: 60%;
     position: relative;
     background-color: #fff;
     border-radius: 20px;
@@ -161,20 +190,21 @@ p#input {
     height: 80px;
     padding: 0 30px 0 30px;
 }
+
 input[type="text"] {
-    height: 40px;
+    height: 30px;
     border-radius: 12px;
     padding: 20px;
 }
 
 input[type="date"] {
-    height: 40px;
+    height: 30px;
     border-radius: 12px;
     padding: 20px;
 }
 
 input[type="password"] {
-    height: 40px;
+    height: 30px;
     border-radius: 12px;
     padding: 20px;
 }
@@ -183,47 +213,37 @@ label {
     margin-bottom: 10px;
     margin-left: 10px;
 }
-button {
-    width: 50px;
-    display: flex;
-    justify-content: center;
-    padding: 0 20px;
-    min-width: 160px;
-    height: 42px;
-    background-color: darkgrey;
-    border-radius: 21px;
-    font-family: JosefinSans-Bold;
-    font-size: 14px;
-    color: #fff;
-    line-height: 1.2;
-    text-transform: uppercase;
-    padding-top: 5px;
-    -webkit-box-shadow: 0 10px 30px 0px grey;
-    border: none;
-    margin-left: 30px;
-}
+
 @media (min-width: 1620px){
 .container-box {
-    max-width: 1620px;
+    /* max-width: 1620px; */
     margin: auto;
-    width: 100%;
-    padding-left: 0px;
-    padding-right: 0px;
+    width: 110%;
+    height: 10%;
+    /* padding-left: 0px;
+    padding-right: 0px; */
 }
 }
 
 @media (min-width: 768px){
 .container {
-    max-width: 720px;
+    height:300px;
+    /* background-color: white; */
 }
 }
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 300px;
-    margin: auto;
+    /* max-width: 300px; */
+    margin-right: 10%;
+    margin-top:5%;
+    margin-left: 5%;
+    margin-bottom: 5%;
     text-align: center;
     font-family: arial;
+    border-radius: 5%;
+    width:350px;
+    background-color: white;
   }
   
   .title {
@@ -231,7 +251,7 @@ button {
     font-size: 18px;
   }
   
-  button {
+   button {
     border: none;
     outline: 0;
     display: inline-block;
@@ -240,9 +260,10 @@ button {
     background-color: #000;
     text-align: center;
     cursor: pointer;
-    width: 100%;
+    width: 50%;
     font-size: 18px;
-  }
+    border-radius: 10px;
+  } 
   
   a {
     text-decoration: none;
@@ -258,9 +279,8 @@ button {
     margin: 0;
     font-size: 18px;
     font-weight: normal;
-    margin-top: 0px;
-    border-bottom: 1px solid #f1f1f1;
-    padding-bottom: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
     line-height: 1.25em;
     color: #333333;
 }
@@ -294,4 +314,9 @@ span {
 ul.single-category {
     display: flex;
     flex-direction: column;
+}
+
+#save{
+    justify-content: center;
+    display:flex;
 }

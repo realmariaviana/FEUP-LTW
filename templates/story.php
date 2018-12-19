@@ -94,12 +94,9 @@ function drawStories($key, $aux){
   
      ?>
      <article id="<?= $story['entity_id']?>" class="story">
-        <div class="user-info">
-            <img class="avatar" src=<?=$img['img']?> alt="imgPerfil" />
-            <div class="date-name">
-                <span><a href="../pages/profilePage.php?username=<?= $story['username']?>"> <?= $story['username']?> </a></span>
-                <label for="date"><?=$story['hour']?></label>
-            </div>
+         <div>
+        <img class="avatar" src=<?=$img['img']?> alt="imgPerfil" />
+        <span><a href="../pages/profilePage.php?username=<?= $story['username']?>"> <?= $story['username']?> </a></span>
         </div>
         <div class="story-descript">
             <a href="../pages/stories.php?search=Stories&sub=<?= $story['title']?>"> <?= $story['title']?> </a>
@@ -139,6 +136,8 @@ function drawStories($key, $aux){
                         <img class="upvote" id="<?="up-vote-" . $story['entity_id']?>" src="https://image.flaticon.com/icons/svg/25/25297.svg" width="20" height="20" alt="upVote" >
                         <?php } ?>
                     </p>
+                    <label class="date" for="date"><?= $story['hour']?></label>
+                </li>
                 <li>
                     <label class="comment" data-id="<?= $story['entity_id']?>">Comments</label>
                 </li>
