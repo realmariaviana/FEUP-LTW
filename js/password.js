@@ -12,7 +12,7 @@ repeatPass.addEventListener("keyup", equalPass);
 
 let obrig = RegExp('^.{5,}$');
 let medium = RegExp('^.{5,7}$');
-let long = RegExp('^.{8,25}$')
+let long = RegExp('^.{8,}$')
 
 let passNU = RegExp('([_@$%]|[a-z])+([0-9])([0-9]|[_@$%]|[a-z])*([A-Z])([0-9]|[_@$%]|[a-z]|[A-Z])*')
 let passLN = RegExp('([_@$%]|[a-z])+([A-Z])([A-Z]|[_@$%]|[a-z])*([0-9])([0-9]|[_@$%]|[a-z]|[A-Z])*')
