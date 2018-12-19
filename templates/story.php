@@ -79,16 +79,20 @@ function drawStories($key, $aux){
     }
 ?>
 
-<script src="../js/votes.js" defer></script>
 
+
+<div id="storyConteiner">
 <?php
     foreach($stories as $story)
         drawStory($story);
 
     unset($story);
  }
+?>
 
 
+
+<?php
  function drawStory($story){
      $img = getImg($story['username']);
   
@@ -147,5 +151,5 @@ function drawStories($key, $aux){
  
  <?php   }
 ?>
-
+   </div>
 

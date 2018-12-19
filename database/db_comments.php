@@ -112,9 +112,7 @@ function editProfile($username, $birth, $pass, $email, $img,$rowid, $salt) {
    */
   function myComments($username) {
     $db = Database::instance()->db();
-    $stmt = $db->prepare('SELECT title FROM stories,comments
-     WHERE comments.username = ? 
-     AND story_id = stories.entity_id');
+    $stmt = $db->prepare("SELECT  DISTINCT stories.* from stories LEFT JOIN likes on likes.entity_id = stories.entity_id, comments where comments.username = ?");
     $stmt->execute(array($username));
     return $stmt->fetchAll();
   }
@@ -176,7 +174,7 @@ function editProfile($username, $birth, $pass, $email, $img,$rowid, $salt) {
    */
   function getAllStories() {
     $db = Database::instance()->db();
-    $stmt = $db->prepare('SELECT * FROM stories');
+    $stmt = $db->prepare('SELECT * FROM stories ORDER BY stories.hour ASC');
     $stmt->execute();
     return $stmt->fetchAll();
   }
@@ -313,5 +311,18 @@ function editProfile($username, $birth, $pass, $email, $img,$rowid, $salt) {
   }
 
 
+  function storiesDesc(){
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT * FROM stories ORDER BY stories.hour DESC');
+    $stmt->execute();
+    return $stmt->fetchAll(); 
+  }
 
+
+  function mostVoted(){
+    $db = Database::instance()->db();
+    $stmt = $db->prepare('SELECT stories.*, likes.entity_id,COUNT(*) as C FROM likes,stories where likes.entity_id = stories.entity_id GROUP BY likes.entity_id');
+    $stmt->execute();
+    return $stmt->fetchAll(); 
+  }
 ?>
