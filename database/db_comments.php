@@ -112,8 +112,8 @@ function editProfile($username, $birth, $pass, $email, $img,$rowid, $salt) {
    */
   function myComments($username) {
     $db = Database::instance()->db();
-    $stmt = $db->prepare("SELECT  DISTINCT stories.* from stories, likes, comments where (stories.entity_id = likes.entity_id and likes.username=?) or (comments.username=? and comments.story_id = stories.entity_id)");
-    $stmt->execute(array($username, $username));
+    $stmt = $db->prepare("SELECT  DISTINCT stories.* from stories LEFT JOIN likes on likes.entity_id = stories.entity_id, comments where comments.username = ?");
+    $stmt->execute(array($username));
     return $stmt->fetchAll();
   }
 
@@ -321,7 +321,7 @@ function editProfile($username, $birth, $pass, $email, $img,$rowid, $salt) {
 
   function mostVoted(){
     $db = Database::instance()->db();
-    $stmt = $db->prepare('SELECT stories.*, likes.entity_id,COUNT(*) as C FROM likes,stories where likes.entity_id = stories.entity_id GROUP BY likes.entity_id ORDER BY C DESC');
+    $stmt = $db->prepare('SELECT stories.*, likes.entity_id,COUNT(*) as C FROM likes,stories where likes.entity_id = stories.entity_id GROUP BY likes.entity_id');
     $stmt->execute();
     return $stmt->fetchAll(); 
   }

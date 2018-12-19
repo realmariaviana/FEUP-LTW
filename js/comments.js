@@ -1,14 +1,13 @@
 'use strict'
 
-function initializeComments() {
+function initializeComments(){
     let storiesComments = document.querySelectorAll('.comment');
 
     storiesComments.forEach((storiesComments) => (storiesComments.addEventListener('click', openComments), storiesComments.bool = true));
-
+    
 }
 
 initializeComments();
-
 function openComments(event) {
     let comment = event.target
     let id = comment.getAttribute('data-id')
@@ -41,12 +40,12 @@ function writeComments(comments, id) {
     let divComments = document.createElement("div");
     divComments.id = "delete-" + id;
     divComments.className = "commentsContainer";
-
+  
     comments.forEach(element => {
-
+        
         let h5 = document.createElement("h5");
-        h5.innerHTML = element.username;
-
+        h5.innerHTML=element.username;
+       
         let p = document.createElement("p");
         p.innerHTML = element.body;
 
@@ -57,37 +56,37 @@ function writeComments(comments, id) {
         date.innerHTML = element.hour;
 
         let container = document.createElement("div");
-        container.classList.add("comments-container");
+       container.classList.add("comments-container");
+       
 
-
-        let container2 = document.createElement("div");
-        container2.classList.add("comments-user");
-
-
+       let container2 = document.createElement("div");
+       container2.classList.add("comments-user");
+        
+        
 
         let container3 = document.createElement("div");
         container3.classList.add("comment-vote");
-
+         
         let container4 = document.createElement("div");
         container4.classList.add("com");
         container4.appendChild(div);
         container4.appendChild(h5);
         container4.appendChild(p);
-
+        
         container2.appendChild(container4);
         container2.appendChild(date);
 
         container3.appendChild(votes(element));
-
+        
 
         container.appendChild(container2);
         container.appendChild(container3);
 
-
+    
         divComments.appendChild(container);
-
-
-
+        
+        
+        
     });
     let article = document.getElementById(id);
     article.appendChild(divComments);
@@ -105,44 +104,44 @@ function deleteComments(id) {
 };
 
 
-function votes(element) {
+function votes(element){
 
     let voteupcount = document.createElement("label");
     let votedowncount = document.createElement("label");
 
     voteupcount.id = "number-up-votes-" + element.entity_id;
     votedowncount.id = "number-down-votes-" + element.entity_id;
-
+   
     voteupcount.innerHTML = element.upvotes;
     votedowncount.innerHTML = element.downvotes;
     let voteup = document.createElement("img");
     let votedown = document.createElement("img");
 
 
-    if (element.voteup)
-        voteup.src = "https://image.flaticon.com/icons/svg/25/25423.svg"
+    if(element.voteup)
+    voteup.src = "https://image.flaticon.com/icons/svg/25/25423.svg"
     else
-        voteup.src = "https://image.flaticon.com/icons/svg/25/25297.svg"
+    voteup.src = "https://image.flaticon.com/icons/svg/25/25297.svg" 
 
-    voteup.width = "15"
-    voteup.height = "15"
-    voteup.alt = "upVote"
+    voteup.width="15" 
+    voteup.height="15"
+    voteup.alt="upVote"
 
 
-    if (element.votedown)
-        votedown.src = "https://image.flaticon.com/icons/svg/25/25395.svg"
+    if(element.votedown)
+    votedown.src = "https://image.flaticon.com/icons/svg/25/25395.svg"
     else
-        votedown.src = "https://image.flaticon.com/icons/svg/25/25237.svg"
+    votedown.src = "https://image.flaticon.com/icons/svg/25/25237.svg"
 
-    votedown.width = "15"
-    votedown.height = "15"
-    votedown.alt = "downVote"
+    votedown.width="15" 
+    votedown.height="15"
+    votedown.alt="downVote"
 
 
 
     voteup.id = "up-vote-" + element.entity_id;
     votedown.id = "down-vote-" + element.entity_id;
-
+    
     voteup.addEventListener("click", addVote);
     votedown.addEventListener("click", addDownVote);
 

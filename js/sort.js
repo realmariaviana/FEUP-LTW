@@ -32,7 +32,6 @@ function ola(event) {
 }
 
 function drawStories(stories) {
-    console.log(stories);
     let container = document.getElementById("storyConteiner");
     activateScripts();
     while (container.firstElementChild) {
