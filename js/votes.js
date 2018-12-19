@@ -9,10 +9,11 @@ upvotes.forEach((upvote) => upvote.addEventListener("click", addVote));
 downVotes.forEach((downvote) => downvote.addEventListener("click", addDownVote));
 }
 scopie();
+
 function addVote(event) {
     let vote = event.target
-    let id = vote.getAttribute("id").slice(-1)
-
+    let id = vote.getAttribute("id").split("-").pop().trim()
+   
     let request = new XMLHttpRequest();
     request.open("post", "../actions/add_vote.php", true)
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -32,8 +33,8 @@ function addVote(event) {
 
 function addDownVote(event) {
     let vote = event.target
-    let id = vote.getAttribute("id").slice(-1)
-
+    let id = vote.getAttribute("id").split("-").pop().trim()
+   
     let request = new XMLHttpRequest();
     request.open("post", "../actions/add_vote.php", true)
     request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

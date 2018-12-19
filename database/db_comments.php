@@ -321,7 +321,7 @@ function editProfile($username, $birth, $pass, $email, $img,$rowid, $salt) {
 
   function mostVoted(){
     $db = Database::instance()->db();
-    $stmt = $db->prepare('SELECT stories.*, likes.entity_id,COUNT(*) as C FROM likes,stories where likes.entity_id = stories.entity_id GROUP BY likes.entity_id');
+    $stmt = $db->prepare('SELECT stories.*, likes.entity_id,COUNT(*) as C FROM likes,stories where likes.entity_id = stories.entity_id GROUP BY likes.entity_id ORDER BY C desc');
     $stmt->execute();
     return $stmt->fetchAll(); 
   }
