@@ -47,17 +47,26 @@ function drawStories(stories) {
         article.classList.add("story");
 
         let div = document.createElement("div")
+        div.classList.add("user-info")
         let img = create('img')
         img.classList.add("avatar")
         img.src = element.img
         img.alt = "imgPerfil"
         div.appendChild(img)
+        let auxDiv = create("div")
+        auxDiv.classList="date-name "
         let span = create('span')
         let aspan = create('a')
         aspan.href = "../pages/profilePage.php?username=" + element.username;
+        let li2 = create('label')
+        li2.innerHTML = element.hour
+        li2.for = "date"
+
         aspan.innerHTML = " " + element.username + " "
         span.appendChild(aspan)
-        div.appendChild(span);
+        auxDiv.appendChild(span)
+        auxDiv.appendChild(li2)
+        div.append(auxDiv)
 
         ///////////////////////////////////////7
         let storyDescript = create('div');
@@ -97,16 +106,14 @@ function drawStories(stories) {
         let ul = create('ul')
         ul.classList.add("like-com")
         let li1 = create('li')
-        let li2 = create('li')
         let li3 = create('li')
         let p2 = create('p')
         p2.classList.add("votes")
         p2.innerHTML = constructVotes(element);
         li1.appendChild(p2);
-        li2.innerHTML = "<label for=date >" + element.hour + "</label>"
+       
         li3.innerHTML = "<label class=comment data-id=" + element.entity_id + "> Comments </label>"
         ul.appendChild(li1);
-        ul.appendChild(li2);
         ul.appendChild(li3);
         postfooter.appendChild(ul)
 

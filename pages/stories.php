@@ -26,13 +26,13 @@ $img = getImg($_SESSION['username']);
                 </div>
                 <nav id="sortNav"> 
 
-                <input  class="sorting" type="radio" name="sort" id="recent"> 
+                <input hidden  class="sorting" type="radio" name="sort" id="recent"> 
                 <label for="recent">recent</label>
-                <input  class="sorting" type="radio" name="sort" id="old"> 
+                <input  hidden class="sorting" type="radio" name="sort" id="old"> 
                 <label for="old">old</label> 
-                <input  class="sorting" type="radio" name="sort" id="feed"> 
+                <input  hidden class="sorting" type="radio" name="sort" id="feed"> 
                 <label for="feed">feed</label>
-                <input  class="sorting" type="radio" name="sort" id="votes">
+                <input  hidden class="sorting" type="radio" name="sort" id="votes">
                 <label for="votes">votes</label>
                  
                 </nav>
