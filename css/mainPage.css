@@ -414,15 +414,13 @@ form#storyForm {display: flex;justify-content: center;}
 
 .comments-user {
     display: flex;
+    justify-content: space-between;
     flex-direction: row;
     align-items: center;
 }
 
 .comments-user footer {
-    position: absolute;
-    right: 10;
-    position: relative;
-    left: 440;
+    margin-right: 10px;
 }
 
 
