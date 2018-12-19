@@ -1,6 +1,6 @@
 <?php 
   include_once('../database/db_comments.php');
 
-    print_r; 
+    echo bin2hex(random_bytes(10)); 
 
 ?>

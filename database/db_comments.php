@@ -325,6 +325,4 @@ function editProfile($username, $birth, $pass, $email, $img,$rowid, $salt) {
     $stmt->execute();
     return $stmt->fetchAll(); 
   }
-
-
 ?>

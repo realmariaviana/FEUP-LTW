@@ -63,7 +63,7 @@ function updateVotes(votes, storyId) {
         img1.src = "https://image.flaticon.com/icons/svg/25/25423.svg"
     else
         img1.src = "https://image.flaticon.com/icons/svg/25/25297.svg"
-
+        
     elem1.innerHTML = votes[0]['N'];
     elem2.innerHTML = votes[1]['N']
 }
