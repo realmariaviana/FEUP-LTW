@@ -1,9 +1,27 @@
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('../fonts/poppins/Poppins-Regular.ttf'); 
+}
 
+@font-face {
+  font-family: Poppins-Medium;
+  src: url('../fonts/poppins/Poppins-Medium.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-Bold;
+  src: url('../fonts/poppins/Poppins-Bold.ttf'); 
+}
+
+@font-face {
+  font-family: Poppins-SemiBold;
+  src: url('../fonts/poppins/Poppins-SemiBold.ttf'); 
+}
 * {box-sizing: border-box;}
 
 body { 
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Poppins, sans-serif;
 }
 
 .header {
@@ -16,7 +34,6 @@ padding: 20px 10px;
 }
 .header a.logo {
     font-size: 25px;
-    font-weight: bold;
   }
 
 .topnav{
@@ -79,11 +96,6 @@ padding: 20px 10px;
 }
 
   
-  /* When the input field gets focus, change its width to 100% */
-  input[type=text]:focus {
-    width: 100%;
-  }
-
   .searchArea {
     float: left;
 }

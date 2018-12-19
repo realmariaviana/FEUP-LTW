@@ -19,7 +19,7 @@
   }
   
 body {
-    font-family: Poppins, sans-serif;
+    font-family: Poppins-Regular, sans-serif;
     /* background-color: #aaa; */
 }
  
@@ -96,7 +96,6 @@ article{
     background-color: #e5e5e5;
     padding: 2px;
     text-transform: lowercase;
-    /* text-align: center; */
     text-decoration: none;
     margin-right: 6px;
     margin-bottom: 10px;
