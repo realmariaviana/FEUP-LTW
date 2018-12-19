@@ -1,9 +1,13 @@
 'use strict'
 
-let storiesComments = document.querySelectorAll('.comment');
+function initializeComments(){
+    let storiesComments = document.querySelectorAll('.comment');
 
-storiesComments.forEach((storiesComments) => (storiesComments.addEventListener('click', openComments), storiesComments.bool = true));
+    storiesComments.forEach((storiesComments) => (storiesComments.addEventListener('click', openComments), storiesComments.bool = true));
+    
+}
 
+initializeComments();
 function openComments(event) {
     let comment = event.target
     let id = comment.getAttribute('data-id')

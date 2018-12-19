@@ -22,7 +22,7 @@
 <body>
     <header>
         <?php if($username != null) { ?>
-            <script src="../js/comments.js" defer></script>
+            <script id="commentScript" src="../js/comments.js" defer></script>
             <script src="../js/search.js" defer></script>
 
            <nav>

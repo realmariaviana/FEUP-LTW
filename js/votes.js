@@ -1,11 +1,14 @@
 'user strict'
 
+
+function scopie(){
 let upvotes = document.querySelectorAll('.votes > .upvote');
 let downVotes = document.querySelectorAll('.votes > .downvote');
 
 upvotes.forEach((upvote) => upvote.addEventListener("click", addVote));
 downVotes.forEach((downvote) => downvote.addEventListener("click", addDownVote));
-
+}
+scopie();
 function addVote(event) {
     let vote = event.target
     let id = vote.getAttribute("id").slice(-1)
