@@ -11,15 +11,21 @@ $password = $_POST['password'];
 $email = htmlspecialchars($_POST['email']);
 $birth = $_POST['birth'];
 
-$salt = random_bytes(10);
+$salt = bin2hex(openssl_random_pseudo_bytes(10));
 
 
 
 try {
 
+    if(date("Y-d-m", strtotime("-10 years")) < $birth)
+    throw new Exception("You need to get at least 10 years old");
+
+
 if ( !preg_match ("/^[a-zA-Z0-9]+$/", $username)) {
     throw new Exception("Username can only contain letters and numbers!");
 }
+
+
 
 if(!(preg_match("/^([_@$%]|[a-z])+([0-9])([0-9]|[_@$%]|[a-z])*([A-Z])([0-9]|[_@$%]|[a-z]|[A-Z])*$/", $password) || preg_match("/^([_@$%]|[a-z])+([A-Z])([A-Z]|[_@$%]|[a-z])*([0-9])([0-9]|[_@$%]|[a-z]|[A-Z])*$/", $password))){
     throw new Exception("Pay attention in your pass");
@@ -40,15 +46,9 @@ if(!(preg_match("/^([_@$%]|[a-z])+([0-9])([0-9]|[_@$%]|[a-z])*([A-Z])([0-9]|[_@$
     $_SESSION['messages'][] = array('type' => 'success', 'content' => 'Signed up and logged in!');
     header('Location: ../pages/stories.php?search=all&sub=null');
 } catch (Exception $e) {
-<<<<<<< HEAD
-   die($e->getMessage());
-    $_SESSION['messages'][] = array('type' => 'error', 'content' => 'Failed to signup!');
-    header('Location: ../pages/register.php');
-=======
-  //die($e->getMessage());
+  die($e->getMessage());
     $_SESSION['messages'][] = array('type' => 'error', 'content' => $e->getMessage());
     die(header('Location: ../pages/register.php'));
->>>>>>> f4857a258dc0669071a4c10ac5c77150bb15e6c4
     }
 
 ?>

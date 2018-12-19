@@ -28,6 +28,8 @@ include_once('../actions/upload.php');
 
     
 try {
+    if(date("Y-d-m", strtotime("-10 years")) < $birth)
+        throw new Exception("You need to get at least 10 years old");
 
     if ( !preg_match ("/^[a-zA-Z0-9]+$/", $username)) {
          throw new Exception("Username can only contain letters and numbers!");
