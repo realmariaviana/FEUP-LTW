@@ -37,15 +37,17 @@
                </div>
 
                <div class="searchArea">
-                   <form id="searchForm" method="get">
-                       <select name="searchthemes" id="searchBox">
-                           <option value="Themes">Themes</option>
-                           <option value="Users">Users</option>
-                           <option value="Stories">Stories</option>
-                       </select>
-                       <input id="search" type="text" placeholder="Search..">             
-                   </form>
-                   <div id="suggestions"></div>
+                    <div class="form-area">
+                        <form id="searchForm" method="get">
+                            <select name="searchthemes" id="searchBox">
+                                <option value="Themes">Themes</option>
+                                <option value="Users">Users</option>
+                                <option value="Stories">Stories</option>
+                            </select>
+                            <input id="search" type="text" placeholder="Search..">             
+                        </form>
+                    </div>
+                        <div id="suggestions"></div>
                </div>
 
                <div class=topnav-right>
