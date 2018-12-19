@@ -28,7 +28,12 @@ include_once('../actions/upload.php');
 
     
 try {
+    if(date("Y-d-m", strtotime("-10 years")) < $birth)
+    throw new Exception("You need to get at least 10 years old");
 
+  /*   
+    if(true)
+    throw new Exception(date("Y-d-m", strtotime("-5 years"))); */
     if ( !preg_match ("/^[a-zA-Z0-9]+$/", $username)) {
          throw new Exception("Username can only contain letters and numbers!");
     }
@@ -61,7 +66,7 @@ try {
     header("Location: ../pages/profilePage.php?username=" . $username);
 
 } catch (Exception $th) {
-    //die($th->getMessage());
+    die($th->getMessage());
     $_SESSION['messages'][] =array( 'type' => 'fail', 'content' => 'Fail editing profile');
 
    header("Location: ../pages/editProfile.php");
